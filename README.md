@@ -65,6 +65,7 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [OpenSearch](https://opensearch.org/) - Apache 2.0 fork of Elasticsearch.
 - [Quickwit](https://quickwit.io/) - Search engine on top of object storage, using shared-everything architecture.
 - [Meilisearch](https://www.meilisearch.com/) - Open source search engine, aims to be a ready-to-go solution.
+- [Typesense](https://typesense.org/) - Оpen-source, typo-tolerant search engine optimized for instant search-as-you-type experiences and developer productivity.
 
 ### NewSQL
  
