@@ -53,6 +53,7 @@ A curated list of awesome open-source Online Analytical Processing <b>databases,
 
 The following columnar databases use a [shared-nothing architecture](https://en.wikipedia.org/wiki/Shared-nothing_architecture) and provide a sub-second response time. DDL, DML and DCL are operated via SQL. These databases also support tiering for long-term cold storage.
 
+- [Apache Doris](https://doris.apache.org/)
 - [Apache Druid](https://druid.apache.org/)
 - [Apache HBase](https://hbase.apache.org/)
 - [Apache Pinot](https://pinot.apache.org/)
