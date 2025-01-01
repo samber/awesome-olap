@@ -59,6 +59,7 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [Apache Pinot](https://pinot.apache.org/)
 - [Clickhouse](https://clickhouse.com)
 - [StarRocks](https://www.starrocks.io/)
+- [Dremio](https://www.dremio.com/)
 
 ### Search engines
 
@@ -68,7 +69,7 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [Quickwit](https://quickwit.io/) - Search engine on top of object storage, using shared-everything architecture.
 - [Typesense](https://typesense.org/) - Оpen-source, typo-tolerant search engine optimized for instant search-as-you-type experiences and developer productivity.
 
-### NewSQL
+### Hybrid OLAP/OLTP NewSQL (aka HTAP)
  
 - [Citus](https://www.citusdata.com/) - PostgreSQL compatible distributed table.
 - [TiDB](https://github.com/pingcap/tidb) - MySQL compatible SQL database that supports hybrid transactional and analytical processing workloads.
@@ -89,15 +90,15 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 
 ## Data lake
 
-The data lake approach (or "lakehouse") is a semi-structured schema that sit on top of object storage in the cloud.
+The data lake approach (or "lakehouse") is a semi-structured schema that sits on top of object storage in the cloud.
 
 It is composed of a few layers (from lower to higher level): codec, file format, table format + metastore, and the ingestion/query layer.
 
 ### File formats and serialization
 
-These formats are popular for shared-everything databases, using object storage as persistence layer. The data is organized in row or column, with strict schema definition. These files are immutable and offer partial reads (only headers, metadata, data page, etc). Mutation require a new upload. Most formats support nested schema, codecs, compression and data encryption. Index can be added to file metadata for faster processing.
+These formats are popular for shared-everything databases, using object storage as a persistence layer. The data is organized in row or column, with strict schema definition. These files are immutable and offer partial reads (only headers, metadata, data page, etc). Mutation requires a new upload. Most formats support nested schema, codecs, compression, and data encryption. Index can be added to file metadata for faster processing.
 
-A single file can weight between tens of MB to a few GB. Lot of small files require more merge operation. Larger files can be costly to update.
+A single file can weight between tens of MB to a few GB. Lots of small files require more merge operation. Larger files can be costly to update.
 
 - [Apache Arrow Columnar Format](https://arrow.apache.org/docs/format/Columnar.html) - Columnar format for in-memory Apache Arrow processing.
 - [Apache Avro](https://avro.apache.org/) - Row-oriented serialization for data streaming purpose.
@@ -237,6 +238,7 @@ The popular acronym for Extracting, Transforming and Loading data. ELT performs 
 - [Apache Parquet format](https://github.com/apache/parquet-format/)
 - [Dremel paper](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/36632.pdf)
 - [RDD](https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf)
+- [RocksDB](https://research.facebook.com/publications/rocksdb-evolution-of-development-priorities-in-a-key-value-store-serving-large-scale-applications/)
 - [Spanner paper](https://static.googleusercontent.com/media/research.google.com/en/us/archive/spanner-osdi2012.pdf)
 
 ### Architecture
