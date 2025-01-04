@@ -106,6 +106,8 @@ A single file can weight between tens of MB to a few GB. Lots of small files req
 - [Apache Parquet](https://parquet.apache.org/) - Column-oriented serialization for data storage purpose.
 - [Apache Thrift](https://thrift.apache.org/) - Row-oriented serialization for RPC purpose.
 - [Google Protobuf](https://protobuf.dev/) - Row-oriented serialization for RPC purpose.
+- [Cap’n Proto](https://capnproto.org/) - Row-oriented serialization with zero-copy access, as fast as mmap.
+- [Flatbuffer](https://flatbuffers.dev/) - Row-oriented serialization with zero-copy access, as fast as mmap.
 - [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) - Centralized repository for validating row-oriented events. Part of Kafka and Confluent platform.
 
 ### Open table formats
