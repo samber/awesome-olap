@@ -27,6 +27,7 @@ A curated list of awesome open-source Online Analytical Processing <b>databases,
   - [In-memory processing](#in-memory-processing)
   - [Distributed SQL processing](#distributed-sql-processing)
 - [Scheduler](#scheduler)
+- [Durable execution](#durable-execution)
 - [ETL, ELT and reverse ETL](#etl-elt-and-reverse-etl)
 - [Datasets](#datasets)
 - [Benchmark](#benchmark)
@@ -53,13 +54,13 @@ A curated list of awesome open-source Online Analytical Processing <b>databases,
 
 The following columnar databases use a [shared-nothing architecture](https://en.wikipedia.org/wiki/Shared-nothing_architecture) and provide a sub-second response time. DDL, DML and DCL are operated via SQL. These databases also support tiering for long-term cold storage.
 
-- [Apache Doris](https://doris.apache.org/)
-- [Apache Druid](https://druid.apache.org/)
-- [Apache HBase](https://hbase.apache.org/)
-- [Apache Pinot](https://pinot.apache.org/)
-- [Clickhouse](https://clickhouse.com)
-- [StarRocks](https://www.starrocks.io/)
-- [Dremio](https://www.dremio.com/)
+- [Apache Doris](https://doris.apache.org/) - MPP analytical database with MySQL-compatible interface, optimized for high-concurrency queries and real-time data ingestion.
+- [Apache Druid](https://druid.apache.org/) - Real-time OLAP database optimized for streaming ingestion, time-series analytics, and sub-second queries on high-cardinality data.
+- [Apache HBase](https://hbase.apache.org/) - Distributed, wide-column NoSQL database on top of HDFS, modeled after Google Bigtable.
+- [Apache Pinot](https://pinot.apache.org/) - Distributed OLAP datastore for user-facing real-time analytics, designed for low-latency queries at high concurrency.
+- [Clickhouse](https://clickhouse.com) - Column-oriented DBMS for online analytical processing, capable of processing billions of rows per second.
+- [StarRocks](https://www.starrocks.io/) - MPP OLAP database with vectorized execution engine, optimized for real-time analytics and high-concurrency workloads.
+- [Dremio](https://www.dremio.com/) - SQL lakehouse platform providing a semantic layer and query acceleration on top of data lakes.
 
 ### Search engines
 
@@ -76,17 +77,20 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 
 ### Timeseries
 
-- [Grafana Mimir](https://grafana.com/oss/mimir/) - Prometheus compatible TSDB on top of object storage.
-- [TimeScaleDB](https://www.timescale.com/) - PostgreSQL compatible TSDB.
+- [Grafana Mimir](https://grafana.com/oss/mimir/) - Prometheus-compatible TSDB on top of object storage, horizontally scalable.
+- [Prometheus](https://prometheus.io/) - Pull-based metrics collection and time series database, de facto standard for cloud-native monitoring.
+- [TimeScaleDB](https://www.timescale.com/) - PostgreSQL-compatible TSDB with automatic partitioning and time-series-specific SQL extensions.
+- [VictoriaMetrics](https://victoriametrics.com/) - Fast, cost-effective Prometheus-compatible TSDB, up to 20x better performance and 7x lower storage than InfluxDB.
 
 ### Managed cloud services
 
-- [AWS Redshift](https://aws.amazon.com/redshift/)
-- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics)
-- [Databricks](https://www.databricks.com/)
-- [Firebolt](https://www.firebolt.io/)
-- [Google Big Query](https://cloud.google.com/bigquery)
-- [Snowflake](https://www.snowflake.com/en/)
+- [AWS Redshift](https://aws.amazon.com/redshift/) - Fully managed petabyte-scale data warehouse on AWS.
+- [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics) - Unified analytics service combining data integration, warehousing, and big data on Azure.
+- [Databricks](https://www.databricks.com/) - Lakehouse platform combining data warehousing and ML, built on Delta Lake and Apache Spark.
+- [Firebolt](https://www.firebolt.io/) - Cloud-native OLAP warehouse engineered for sub-second query performance at scale.
+- [Google Big Query](https://cloud.google.com/bigquery) - Serverless, pay-as-you-go data warehouse with built-in ML and BI capabilities.
+- [Snowflake](https://www.snowflake.com/en/) - Cloud data platform with a decoupled storage and compute architecture, supporting multi-cloud deployments.
+- [Tinybird](https://www.tinybird.co/) - Real-time analytics API platform built on ClickHouse.
 
 ## Data lake
 
@@ -116,10 +120,10 @@ Open table formats are abstraction layer on top of Avro/Parquet files, with supp
 
 Open tables are a cost-effective datawarehouse for petabyte scale.
 
-- [Apache Iceberg](https://iceberg.apache.org/)
-- [Apache Hive](https://hive.apache.org/)
-- [Apache Hudi](https://hudi.apache.org/)
-- [DeltaLake](https://delta.io/)
+- [Apache Hive](https://hive.apache.org/) - Data warehouse software on top of Hadoop for SQL-like queries; one of the original open table formats.
+- [Apache Hudi](https://hudi.apache.org/) - Open table format with strong CDC and upsert support, designed for incremental data pipelines.
+- [Apache Iceberg](https://iceberg.apache.org/) - Open table format for huge analytic datasets, with snapshot isolation, schema evolution, and partition pruning.
+- [DeltaLake](https://delta.io/) - Open table format bringing ACID transactions and scalable metadata to Apache Spark and beyond.
 
 Comparison:
 - (2022) https://medium.com/geekculture/open-table-formats-delta-iceberg-hudi-732f682ec0bb
@@ -129,18 +133,18 @@ Comparison:
 
 ### Metastore
 
-- [AWS Glue](https://aws.amazon.com/glue/)
-- [Databricks unity catalog](https://docs.databricks.com/en/data-governance/unity-catalog/index.html)
-- [Hive Metastore](https://cwiki.apache.org/confluence/display/hive/design) - Component of Hadoop HiveServer2, that can be used standalone.
-- [Nessie](https://projectnessie.org/)
+- [AWS Glue](https://aws.amazon.com/glue/) - Serverless data integration service with a managed catalog for AWS data assets.
+- [Databricks unity catalog](https://docs.databricks.com/en/data-governance/unity-catalog/index.html) - Unified governance layer for data and AI assets across the Databricks platform.
+- [Hive Metastore](https://cwiki.apache.org/confluence/display/hive/design) - Component of Hadoop HiveServer2 that can be used standalone as a schema registry for table metadata.
+- [Nessie](https://projectnessie.org/) - Git-like versioning catalog for data lakes, enabling branch and merge operations on Iceberg/Delta/Hudi tables.
 
 ### Object Storage
 
-- [Apache HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) - Hadoop distributed file system.
-- [AWS S3](https://aws.amazon.com/s3/)
-- [Azure Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs)
-- [GCP Cloud Storage](https://cloud.google.com/storage)
-- [Minio](https://min.io/) - S3 compatible and self-hosted object storage.
+- [Apache HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) - Hadoop distributed file system, the original large-scale storage layer for the big data ecosystem.
+- [AWS S3](https://aws.amazon.com/s3/) - Highly durable and available object storage service, the dominant cloud storage backend for data lakes.
+- [Azure Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs) - Microsoft's massively scalable object storage for unstructured data.
+- [GCP Cloud Storage](https://cloud.google.com/storage) - Google's unified object storage service for any amount of data.
+- [Minio](https://min.io/) - S3-compatible self-hosted object storage, suitable for on-premise data lake deployments.
 
 ### Codecs, encoding and compression
 
@@ -157,9 +161,11 @@ Comparison:
 
 ## Brokers and distributed messaging
 
-- [Apache Kafka](https://kafka.apache.org/)
-- [Apache Pulsar](https://pulsar.apache.org/)
-- [Rabbitmq Streams](https://www.rabbitmq.com/streams.html)
+- [Apache Kafka](https://kafka.apache.org/) - Distributed event streaming platform, the de facto standard for high-throughput data pipelines and event-driven architectures.
+- [Apache Pulsar](https://pulsar.apache.org/) - Distributed messaging and streaming platform with multi-tenancy, geo-replication, and a decoupled storage layer.
+- [NATS / JetStream](https://nats.io/) - Lightweight cloud-native messaging system; JetStream adds persistence, replay, and streaming semantics.
+- [Rabbitmq Streams](https://www.rabbitmq.com/streams.html) - Persistent, append-only log streams for RabbitMQ, enabling high-throughput message replay and fan-out.
+- [Redpanda](https://redpanda.com/) - Kafka-compatible streaming data platform written in C++, with no ZooKeeper dependency and lower latency.
 
 ## Ingestion and querying
 
@@ -167,31 +173,35 @@ Comparison:
 
 Process a set of data in real-time (or near-real-time), as it is being generated.
 
-- [Apache Beam](https://beam.apache.org/) - Unified SDK for cross language stream processing. Available in Go, Python, Java, Scala and Typescript.
-- [Apache Flink](https://flink.apache.org/) - Stateful stream processing.
-- [Apache Kafka stream](https://kafka.apache.org/documentation/streams/) - Stream processing.
-- [Apache Spark streaming](https://spark.apache.org/streaming/) - Stream processing on top of Spark.
-- [Akka stream](https://doc.akka.io/docs/akka/current/stream/index.html) - Stream processing.
-- [Benthos](https://www.benthos.dev/) - Go stream processing.
+- [Akka stream](https://doc.akka.io/docs/akka/current/stream/index.html) - Reactive stream processing library for JVM, built on the actor model.
+- [Apache Beam](https://beam.apache.org/) - Unified SDK for cross-language stream and batch processing. Available in Go, Python, Java, Scala and TypeScript.
+- [Apache Flink](https://flink.apache.org/) - Stateful stream processing with exactly-once semantics, supporting event time and out-of-order data.
+- [Apache Kafka Streams](https://kafka.apache.org/documentation/streams/) - Lightweight stream processing library embedded in the Kafka client, no separate cluster required.
+- [Apache Spark Streaming](https://spark.apache.org/streaming/) - Micro-batch stream processing on top of Spark, integrating with the broader Spark ecosystem.
+- [Benthos](https://www.benthos.dev/) - Declarative stream processing toolkit in Go, with a wide connector library.
+- [Materialize](https://materialize.com/) - Operational data warehouse that incrementally maintains SQL views over streaming data, always-fresh without recomputation.
+- [RisingWave](https://risingwave.com/) - Distributed SQL streaming database (PostgreSQL-compatible) with sub-100ms end-to-end freshness and native Iceberg integration.
 
 ### Batch processing
 
 Process periodically a large amount of data in a single batch.
 
-- [Apache Spark](https://spark.apache.org/)
-- [MapReduce](https://en.wikipedia.org/wiki/MapReduce)
+- [Apache Spark](https://spark.apache.org/) - Distributed batch processing engine with in-memory computation, supporting SQL, ML, and graph workloads.
+- [MapReduce](https://en.wikipedia.org/wiki/MapReduce) - Programming model for processing large datasets in parallel across a cluster; the foundation of the Hadoop ecosystem.
 
 ### In-memory processing
 
 Non real-time SQL queries executed against a large database can be processed locally. This method might not fit into memory or lead to very long job duration.
 
-- [Apache Arrow](https://arrow.apache.org/) - Low-level in-memory data processing. Zero-copy data manipulation for any language, via gRPC/IPC interfaces.
-- [Apache Arrow Datafusion](https://arrow.apache.org/datafusion/) - High level SQL interface for Apache Arrow.
-- [delta-rs](https://github.com/delta-io/delta-rs) - Standalone DeltaLake driver for Python and Rust. Do not depend on Spark.
-- [Delta Standalone](https://docs.delta.io/latest/delta-standalone.html) - Standalone DeltaLake driver for Java and Scala. Do not depend on Spark.
-- [DuckDB](https://duckdb.org/) - In-process SQL query engine for processing Parquet files. Built on top of Apache Arrow.
-- [Pandas](https://pandas.pydata.org/) - Python data analysis and manipulation tool.
-- [clickhouse-local](https://clickhouse.com/docs/en/operations/utilities/clickhouse-local) - Lightweight CLI version of Clickhouse for running SQL queries against CSV, JSON, Parquet, etc files.
+- [Apache Arrow](https://arrow.apache.org/) - Low-level in-memory columnar data format with zero-copy access across languages via gRPC/IPC interfaces.
+- [Apache Arrow Datafusion](https://arrow.apache.org/datafusion/) - High-level SQL and DataFrame query engine built on Apache Arrow, written in Rust.
+- [chDB](https://github.com/chdb-io/chdb) - Embeddable in-process OLAP engine powered by ClickHouse, callable from Python without a server.
+- [clickhouse-local](https://clickhouse.com/docs/en/operations/utilities/clickhouse-local) - Lightweight CLI version of ClickHouse for running SQL queries against CSV, JSON, Parquet and other files.
+- [delta-rs](https://github.com/delta-io/delta-rs) - Standalone DeltaLake driver for Python and Rust. Does not depend on Spark.
+- [Delta Standalone](https://docs.delta.io/latest/delta-standalone.html) - Standalone DeltaLake driver for Java and Scala. Does not depend on Spark.
+- [DuckDB](https://duckdb.org/) - In-process SQL OLAP query engine for Parquet, CSV, and JSON files. Built on Apache Arrow.
+- [Pandas](https://pandas.pydata.org/) - Python DataFrame library for data analysis and manipulation, the standard for data science workflows.
+- [Polars](https://pola.rs/) - High-performance DataFrame library written in Rust with a lazy query optimizer, significantly faster than Pandas.
 
 ### Distributed SQL processing
 
@@ -206,16 +216,23 @@ These SQL engines distribute SQL queries processing of very large database on a 
 
 These tools allow to orchestrate, schedule and monitor repetitive data transformations, in a workflow manner.
 
-- [Apache Airflow](https://airflow.apache.org/)
-- [Dagster](https://dagster.io/)
+- [Apache Airflow](https://airflow.apache.org/) - Platform for programmatically authoring, scheduling, and monitoring data pipelines as DAGs.
+- [Dagster](https://dagster.io/) - Data orchestration platform with an asset-centric approach, lineage tracking, and built-in observability.
+
+## Durable execution
+
+Durable execution frameworks guarantee that workflows survive process crashes, network failures, and infrastructure restarts by persisting execution state automatically.
+
+- [Temporal](https://temporal.io/) - Durable workflow execution platform for building fault-tolerant pipelines and long-running data processes.
 
 ## ETL, ELT and reverse ETL
 
 The popular acronym for Extracting, Transforming and Loading data. ELT performs data transformations directly within the data warehouse. Reverse ETL is the process of copying data from your datawarehouse to external tools or SaaS.
 
-- [Airbyte](https://airbyte.com/) - ELT.
-- [Census](https://www.getcensus.com/) - Reverse ETL.
-- [RudderStack](https://www.rudderstack.com/) - Customer Data Platform. Pipeline between a tracking plan, event transformation, and destination tools (datawarehouse or SaaS).
+- [Airbyte](https://airbyte.com/) - Open-source ELT platform with 300+ pre-built connectors for syncing data to your warehouse.
+- [Census](https://www.getcensus.com/) - Reverse ETL platform for syncing data warehouse data to CRMs, ad tools, and other SaaS.
+- [dbt](https://www.getdbt.com/) - SQL-based transformation framework that runs inside your warehouse; the standard tool for the T in ELT.
+- [RudderStack](https://www.rudderstack.com/) - Customer Data Platform providing a pipeline between a tracking plan, event transformation, and destination tools.
 
 ## Datasets
 
@@ -277,10 +294,21 @@ The popular acronym for Extracting, Transforming and Loading data. ELT performs 
 
 ### Vector similarity search
 
+Algorithms and indexes:
+
 - [ANN (approximate nearest neighbor)](https://en.wikipedia.org/wiki/Nearest_neighbor_search)
 - [kNN (k nearest neighbor)](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)
-- [Faiss](https://faiss.ai/)
-- [HNSW](https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37)
+- [Faiss](https://faiss.ai/) - Facebook AI library for efficient similarity search and clustering of dense vectors.
+- [HNSW](https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37) - Hierarchical Navigable Small World graph index for approximate nearest neighbor search.
+
+Dedicated vector databases:
+
+- [Chroma](https://www.trychroma.com/) - Lightweight open-source vector database for AI/RAG applications, optimized for developer simplicity.
+- [LanceDB](https://lancedb.github.io/lancedb/) - Embedded, serverless vector database built on the Lance columnar format (Apache Arrow-based).
+- [Milvus](https://milvus.io/) - Distributed open-source vector database designed for billion-scale similarity search.
+- [pgvector](https://github.com/pgvector/pgvector) - Open-source vector similarity search extension for PostgreSQL.
+- [Qdrant](https://qdrant.tech/) - High-performance vector search engine written in Rust, with rich payload filtering and production-grade reliability.
+- [Weaviate](https://weaviate.io/) - AI-native vector database with built-in vectorization modules, hybrid search, and GraphQL/REST APIs.
 
 ### Vectorized query processing
 
