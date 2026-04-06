@@ -69,12 +69,12 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [Meilisearch](https://www.meilisearch.com/) - Open source search engine, that aims to be a ready-to-go solution.
 - [OpenSearch](https://opensearch.org/) - Apache 2.0 fork of Elasticsearch.
 - [Quickwit](https://quickwit.io/) - Search engine on top of object storage, using shared-everything architecture.
-- [Typesense](https://typesense.org/) - Оpen-source, typo-tolerant search engine optimized for instant search-as-you-type experiences and developer productivity.
+- [Typesense](https://typesense.org/) - Open-source, typo-tolerant search engine optimized for instant search-as-you-type experiences and developer productivity.
 
 ### Hybrid OLAP/OLTP NewSQL (aka HTAP)
 
-- [CockroachDB](https://www.cockroachlabs.com/) - Distributed SQL database with strong consistency, horizontal scaling, and PostgreSQL compatibility for HTAP workloads.
 - [Citus](https://www.citusdata.com/) - PostgreSQL compatible distributed table.
+- [CockroachDB](https://www.cockroachlabs.com/) - Distributed SQL database with strong consistency, horizontal scaling, and PostgreSQL compatibility for HTAP workloads.
 - [TiDB](https://github.com/pingcap/tidb) - MySQL compatible SQL database that supports hybrid transactional and analytical processing workloads.
 - [YugabyteDB](https://www.yugabyte.com/) - Distributed SQL database compatible with PostgreSQL and Cassandra APIs, designed for global, cloud-native HTAP applications.
 
@@ -121,9 +121,9 @@ A single file can weight between tens of MB to a few GB. Lots of small files req
 - [Apache ORC](https://orc.apache.org/) - Column-oriented serialization for data storage purpose. Part of Hadoop platform.
 - [Apache Parquet](https://parquet.apache.org/) - Column-oriented serialization for data storage purpose.
 - [Apache Thrift](https://thrift.apache.org/) - Row-oriented serialization for RPC purpose.
-- [Google Protobuf](https://protobuf.dev/) - Row-oriented serialization for RPC purpose.
 - [Cap’n Proto](https://capnproto.org/) - Row-oriented serialization with zero-copy access, as fast as mmap.
 - [Flatbuffer](https://flatbuffers.dev/) - Row-oriented serialization with zero-copy access, as fast as mmap.
+- [Google Protobuf](https://protobuf.dev/) - Row-oriented serialization for RPC purpose.
 - [Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html) - Centralized repository for validating row-oriented events. Part of Kafka and Confluent platform.
 
 ### Open table formats
