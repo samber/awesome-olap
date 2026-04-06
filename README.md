@@ -14,6 +14,7 @@ A curated list of awesome open-source Online Analytical Processing <b>databases,
   - [NewSQL](#newsql)
   - [Timeseries](#timeseries)
   - [Managed cloud services](#managed-cloud-services)
+- [Storage engines](#storage-engines)
 - [Data lake](#data-lake)
   - [File formats and serialization](#file-formats-and-serialization)
   - [Open table formats](#open-table-formats)
@@ -356,15 +357,53 @@ Dedicated vector databases:
 
 ## People to follow
 
-// TODO
+| Name | Description | GitHub | Twitter/X | LinkedIn | Bluesky |
+|------|-------------|--------|-----------|----------|---------|
+| Alexey Milovidov | Co-founder and CTO of ClickHouse | [alexey-milovidov](https://github.com/alexey-milovidov) | [@fdooch123](https://x.com/fdooch123) | [in/alexey-milovidov-clickhouse](https://www.linkedin.com/in/alexey-milovidov-clickhouse) | |
+| Hannes Mühleisen | Co-creator of DuckDB, CEO of DuckDB Labs | [hannes](https://github.com/hannes) | [@hfmuehleisen](https://x.com/hfmuehleisen) | [in/hfmuehleisen](https://www.linkedin.com/in/hfmuehleisen) | [bsky](https://bsky.app/profile/hannes.muehleisen.org) |
+| Mark Raasveldt | Co-creator of DuckDB | [Mytherin](https://github.com/Mytherin) | [@mraasveldt](https://x.com/mraasveldt) | [in/mark-raasveldt-256b9a70](https://www.linkedin.com/in/mark-raasveldt-256b9a70) | [bsky](https://bsky.app/profile/markraasveldt.bsky.social) |
+| Wes McKinney | Creator of pandas, co-creator of Apache Arrow and Parquet | [wesm](https://github.com/wesm) | [@wesmckinn](https://x.com/wesmckinn) | [in/wesmckinn](https://www.linkedin.com/in/wesmckinn/) | [bsky](https://bsky.app/profile/wesmckinney.com) |
+| Martin Traverso | Creator of Presto and Trino, CTO at Starburst | [martint](https://github.com/martint) | [@mtraverso](https://x.com/mtraverso) | [in/traversomartin](https://www.linkedin.com/in/traversomartin/) | |
+| Matei Zaharia | Creator of Apache Spark, co-founder and CTO of Databricks | [mateiz](https://github.com/mateiz) | [@matei_zaharia](https://x.com/matei_zaharia) | [in/mateizaharia](https://www.linkedin.com/in/mateizaharia/) | |
+| Jacques Nadeau | Co-creator of Apache Arrow, Apache Drill, and Dremio | [jacques-n](https://github.com/jacques-n) | | [in/jacquesnadeau](https://www.linkedin.com/in/jacquesnadeau/) | [bsky](https://bsky.app/profile/jdata.bsky.social) |
+| Andrew Lamb | PMC member for Apache Arrow, DataFusion, and Parquet | [alamb](https://github.com/alamb) | [@andrewlamb1111](https://x.com/andrewlamb1111) | [in/andrewalamb](https://www.linkedin.com/in/andrewalamb/) | [bsky](https://bsky.app/profile/andrewlamb1111.bsky.social) |
+| Andy Grove | PMC member of Apache Arrow and DataFusion. Author of "How Query Engines Work" | [andygrove](https://github.com/andygrove) | | [in/andygrove](https://www.linkedin.com/in/andygrove/) | [bsky](https://bsky.app/profile/andygrove.io) |
+| Tristan Handy | Founder and CEO of dbt Labs | [jthandy](https://github.com/jthandy) | [@jthandy](https://x.com/jthandy) | [in/tristanhandy](https://www.linkedin.com/in/tristanhandy) | [bsky](https://bsky.app/profile/jthandy.bsky.social) |
+| Fokko Driesprong | PMC member on Apache Avro, Airflow, Druid, Iceberg, and Parquet | [Fokko](https://github.com/Fokko) | [@_Fokko](https://x.com/_Fokko) | [in/fokkodriesprong](https://www.linkedin.com/in/fokkodriesprong) | |
+| Gian Merlino | Co-founder and CTO of Imply, co-creator of Apache Druid | [gianm](https://github.com/gianm) | [@gianmerlino](https://x.com/gianmerlino) | [in/gianmerlino](https://www.linkedin.com/in/gianmerlino) | |
+| Phil Eaton | Database and systems engineer, writer on database internals | [eatonphil](https://github.com/eatonphil) | [@eatonphil](https://x.com/eatonphil) | [in/eatonphil](https://www.linkedin.com/in/eatonphil/) | [bsky](https://bsky.app/profile/eatonphil.bsky.social) |
 
 ## Events
 
-// TODO
+- [Databricks Data+AI Summit](https://www.databricks.com/dataaisummit) - The world's largest data, analytics, and AI conference.
+- [Snowflake Summit](https://www.snowflake.com/summit/) - Annual conference for data and AI practitioners.
+- [Confluent Current](https://current.confluent.io/) - The Data Streaming Event focused on Apache Kafka and real-time data streaming.
+- [Data Council](https://www.datacouncil.ai/) - Technical conference on data engineering, infrastructure, and analytics.
+- [dbt Summit](https://www.getdbt.com/dbt-summit) - The world's largest gathering of dbt users and analytics engineering practitioners.
+- [Flink Forward](https://www.flink-forward.org/) - Conference dedicated to real-time stream processing and Apache Flink.
+- [Community Over Code](https://communityovercode.org/) - The Apache Software Foundation's official conference (formerly ApacheCon).
+- [VLDB](https://vldb.org/) - Premier academic conference on Very Large Data Bases.
+- [ACM SIGMOD/PODS](https://sigmod.org/) - Leading international forum for database researchers and practitioners.
 
 ## Communities
 
-// TODO
+### Generalist
+
+- [r/dataengineering](https://www.reddit.com/r/dataengineering/) - The largest Reddit community for data engineering discussions (300k+ members).
+- [r/databasedevelopment](https://www.reddit.com/r/databasedevelopment/) - Subreddit for database internals, query engines, and storage systems (10k+ members).
+- [DataTalks.Club](https://datatalks.club/slack.html) - Global Slack community for data practitioners covering data engineering, ML, and MLOps.
+- [Big Data Hebdo](https://bigdatahebdo.com/) - French-language Slack community and podcast covering big data, data engineering, and analytics.
+- [Software Internals](https://eatonphil.com/discord.html) - Discord community by Phil Eaton focused on database internals, compilers, and distributed systems (9k+ members).
+- [Locally Optimistic](https://locallyoptimistic.com/community/) - Curated Slack community for current and aspiring analytics leaders.
+
+### Tool-specific
+
+- [dbt Community](https://www.getdbt.com/community/join-the-community) - 100,000+ member Slack workspace for analytics engineering and modern data stack discussions.
+- [ClickHouse Community Slack](https://clickhouse.com/slack) - Active Slack workspace for ClickHouse users and developers.
+- [DuckDB Discord](https://discord.gg/duckdb) - Discord server for DuckDB users covering Q&A, performance tuning, and feature discussions.
+- [Trino Community Slack](https://trino.io/community.html) - 13,000+ members discussing the Trino distributed SQL query engine.
+- [Apache Druid Community](https://druid.apache.org/community/) - Slack workspace and mailing lists for Apache Druid users and committers.
+- [Apache Pinot Community](https://pinot.apache.org/community/) - Community Slack for real-time distributed OLAP datastore users.
 
 ## 🤝 Contributing
 
