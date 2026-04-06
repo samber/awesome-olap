@@ -3,9 +3,15 @@
 
 # Awesome OLAP [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-A curated list of awesome open-source Online Analytical Processing <b>databases, frameworks, ressources, tools</b> and other awesomeness, for data engineers.
+[![Awesome OLAP](https://img.shields.io/badge/awesome--olap-reference-blue)](https://github.com/samber/awesome-olap)
 
 </div>
+
+A curated list of **OLAP databases**, **data engineering** tools, **columnar databases**, **data lake** and **lakehouse** frameworks — covering 100+ tools across 20+ categories, for data engineers.
+
+> **OLAP** (Online Analytical Processing) refers to databases and query engines optimized for complex, read-heavy analytical queries over large datasets. Unlike OLTP systems, OLAP databases use columnar storage, vectorized execution, and distributed processing to aggregate and analyze billions of rows in seconds.
+
+[Contributions welcome — see CONTRIBUTING.md](CONTRIBUTING.md)
 
 <!--lint disable awesome-list-item-->
 - [OLAP Databases](#olap-databases)
