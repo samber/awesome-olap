@@ -448,6 +448,30 @@ A **data lakehouse** combines the low-cost scalable storage of a data lake (file
 
 See the comparison links in the Open table formats section for detailed benchmarks.
 
+### ClickHouse vs Apache Druid vs Apache Pinot vs StarRocks
+
+All four are real-time OLAP databases with sub-second query latency. Key differences:
+
+|                      | ClickHouse                          | Apache Druid                              | Apache Pinot                              | StarRocks                               |
+| -------------------- | ----------------------------------- | ----------------------------------------- | ----------------------------------------- | --------------------------------------- |
+| **Best for**         | Log/event analytics, ad-hoc queries | Streaming-ingested time-series data       | User-facing analytics, high concurrency   | Hybrid batch+streaming, flexible schema |
+| **Architecture**     | Shared-nothing, columnar MergeTree  | Segment-based, time-partitioned           | Segment-based, real-time + offline tables | MPP with vectorized execution engine    |
+| **Ingestion**        | Kafka, files, HTTP push             | Kafka, Kinesis, native streaming          | Kafka, Kinesis, files                     | Kafka, files, Flink, Spark              |
+| **Upserts**          | Limited (ReplacingMergeTree)        | No                                        | No (append-only)                          | Yes (primary key tables)                |
+| **Query concurrency**| Medium                              | High                                      | Very high (user-facing)                   | High                                    |
+| **SQL dialect**      | ClickHouse SQL (mostly ANSI)        | Druid SQL (ANSI subset)                   | PQL + Druid-compatible SQL                | MySQL-compatible SQL                    |
+| **Written in**       | C++                                 | Java                                      | Java                                      | C++ / Java                              |
+| **Managed cloud**    | ClickHouse Cloud                    | Imply Polaris                             | StarTree Cloud                            | CelerData                               |
+| **License**          | Apache 2.0                          | Apache 2.0                                | Apache 2.0                                | Apache 2.0 (Elastic for some features)  |
+
+**When to pick which:**
+- **ClickHouse** — highest raw throughput for analytics on a single cluster; ideal for logs, metrics, and BI queries.
+- **Apache Druid** — best when data arrives via Kafka and you need time-partitioned rollups with guaranteed low latency.
+- **Apache Pinot** — best for user-facing products where thousands of end-users hit the DB concurrently (dashboards, embedded analytics).
+- **StarRocks** — best when you need upserts, a MySQL-compatible interface, or a single engine for both batch and streaming.
+
+See [ClickBench](https://benchmark.clickhouse.com/) for query performance comparisons across engines.
+
 ## People to follow
 
 | Name              | Description                                                                   | GitHub                                                  | Twitter/X                                       | LinkedIn                                                                                  | Bluesky                                                     |
