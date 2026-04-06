@@ -59,9 +59,9 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [Apache Druid](https://druid.apache.org/) - Real-time OLAP database optimized for streaming ingestion, time-series analytics, and sub-second queries on high-cardinality data.
 - [Apache HBase](https://hbase.apache.org/) - Distributed, wide-column NoSQL database on top of HDFS, modeled after Google Bigtable.
 - [Apache Pinot](https://pinot.apache.org/) - Distributed OLAP datastore for user-facing real-time analytics, designed for low-latency queries at high concurrency.
-- [Clickhouse](https://clickhouse.com) - Column-oriented DBMS for online analytical processing, capable of processing billions of rows per second.
-- [StarRocks](https://www.starrocks.io/) - MPP OLAP database with vectorized execution engine, optimized for real-time analytics and high-concurrency workloads.
+- [ClickHouse](https://clickhouse.com) - Column-oriented DBMS for online analytical processing, capable of processing billions of rows per second.
 - [Dremio](https://www.dremio.com/) - SQL lakehouse platform providing a semantic layer and query acceleration on top of data lakes.
+- [StarRocks](https://www.starrocks.io/) - MPP OLAP database with vectorized execution engine, optimized for real-time analytics and high-concurrency workloads.
 
 ### Search engines
 
@@ -73,13 +73,17 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 
 ### Hybrid OLAP/OLTP NewSQL (aka HTAP)
 
+- [CockroachDB](https://www.cockroachlabs.com/) - Distributed SQL database with strong consistency, horizontal scaling, and PostgreSQL compatibility for HTAP workloads.
 - [Citus](https://www.citusdata.com/) - PostgreSQL compatible distributed table.
 - [TiDB](https://github.com/pingcap/tidb) - MySQL compatible SQL database that supports hybrid transactional and analytical processing workloads.
+- [YugabyteDB](https://www.yugabyte.com/) - Distributed SQL database compatible with PostgreSQL and Cassandra APIs, designed for global, cloud-native HTAP applications.
 
 ### Timeseries
 
 - [Grafana Mimir](https://grafana.com/oss/mimir/) - Prometheus-compatible TSDB on top of object storage, horizontally scalable.
+- [InfluxDB](https://www.influxdata.com/) - Purpose-built time series database optimized for high-write-throughput metrics, events, and IoT data with a SQL-like query language.
 - [Prometheus](https://prometheus.io/) - Pull-based metrics collection and time series database, de facto standard for cloud-native monitoring.
+- [QuestDB](https://questdb.io/) - High-performance time series database written in Java and C++, with SQL support and ingestion rates exceeding millions of rows per second.
 - [TimeScaleDB](https://www.timescale.com/) - PostgreSQL-compatible TSDB with automatic partitioning and time-series-specific SQL extensions.
 - [VictoriaMetrics](https://victoriametrics.com/) - Fast, cost-effective Prometheus-compatible TSDB with low memory and storage footprint.
 
@@ -98,6 +102,7 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 Storage engines are the foundational frameworks on top of which higher-level databases and data systems are built. They handle durability, transactions, and low-level data organization.
 
 - [FoundationDB](https://www.foundationdb.org/) - Distributed ordered key-value store with full ACID transactions, designed as a reliable foundation layer for building higher-level databases and services.
+- [RocksDB](https://rocksdb.org/) - Embeddable persistent key-value store by Meta, optimized for fast storage and used as the storage engine inside many distributed databases (TiKV, CockroachDB, Kafka).
 
 ## Data lake
 
@@ -184,7 +189,7 @@ Process a set of data in real-time (or near-real-time), as it is being generated
 - [Apache Flink](https://flink.apache.org/) - Stateful stream processing with exactly-once semantics, supporting event time and out-of-order data.
 - [Apache Kafka Streams](https://kafka.apache.org/documentation/streams/) - Lightweight stream processing library embedded in the Kafka client, no separate cluster required.
 - [Apache Spark Streaming](https://spark.apache.org/streaming/) - Micro-batch stream processing on top of Spark, integrating with the broader Spark ecosystem.
-- [Benthos](https://www.benthos.dev/) - Declarative stream processing toolkit in Go, with a wide connector library.
+- [Redpanda Connect (formerly Benthos)](https://www.redpanda.com/connect) - Declarative stream processing toolkit in Go, with a wide connector library.
 - [Materialize](https://materialize.com/) - Operational data warehouse that incrementally maintains SQL views over streaming data, always-fresh without recomputation.
 - [RisingWave](https://risingwave.com/) - Distributed SQL streaming database (PostgreSQL-compatible) with sub-100ms end-to-end freshness and native Iceberg integration.
 
