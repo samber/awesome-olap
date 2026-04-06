@@ -235,7 +235,7 @@ Non real-time SQL queries executed against a large database can be processed loc
 
 ### Distributed SQL processing
 
-These SQL engines distribute SQL queries processing of very large database on a cluster. Support of ANSI SQL. Also called federated query engines, they can query across heterogeneous data sources.
+These SQL engines execute distributed queries over very large datasets across a cluster. Many support ANSI SQL or ANSI-SQL-like interfaces. Some can also act as federated query engines, querying across heterogeneous data sources.
 
 - [Apache Spark SQL](https://spark.apache.org/sql/) - Distributed SQL query engine that sit on top of Spark.
 - [Dremio](https://www.dremio.com/) - SQL lakehouse platform providing a semantic layer and query acceleration on top of data lakes.
