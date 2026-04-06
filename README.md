@@ -36,6 +36,7 @@ A curated list of **OLAP databases**, **data engineering** tools, **columnar dat
 - [Scheduler](#scheduler)
 - [Durable execution](#durable-execution)
 - [ETL, ELT and reverse ETL](#etl-elt-and-reverse-etl)
+- [BI & Visualization](#bi--visualization)
 - [Datasets](#datasets)
 - [Benchmark](#benchmark)
 - [Readings](#readings)
@@ -51,6 +52,7 @@ A curated list of **OLAP databases**, **data engineering** tools, **columnar dat
   - [Challenging platforms](#challenging-platforms)
   - [Blogs to follow](#blogs-to-follow)
   - [More](#more)
+- [FAQ](#faq)
 - [People to follow](#people-to-follow)
 - [Events](#events)
 - [Communities](#communities)
@@ -264,6 +266,15 @@ The popular acronym for Extracting, Transforming and Loading data (also called d
 - [dbt](https://www.getdbt.com/) - SQL-based transformation framework that runs inside your warehouse; the standard tool for the T in ELT.
 - [RudderStack](https://www.rudderstack.com/) - Customer Data Platform providing a pipeline between a tracking plan, event transformation, and destination tools.
 
+## BI & Visualization
+
+Business intelligence and visualization tools sit on top of OLAP databases, enabling analysts to explore data, build dashboards, and share insights without writing SQL.
+
+- [Apache Superset](https://superset.apache.org/) - Open-source business intelligence platform with a rich SQL editor, drag-and-drop chart builder, and support for 40+ data sources.
+- [Grafana](https://grafana.com/) - Open-source observability and analytics platform for visualizing metrics, logs, and traces; widely used with time-series and OLAP backends.
+- [Metabase](https://www.metabase.com/) - Open-source BI tool focused on ease of use, letting non-technical users explore data and build dashboards without SQL.
+- [Redash](https://redash.io/) - Open-source query editor and dashboarding tool with broad database connector support.
+
 ## Datasets
 
 Large-scale public datasets commonly used for benchmarking OLAP databases, query engines, and data lake tools.
@@ -393,6 +404,49 @@ Dedicated vector databases:
 - [The Internals Of... (books.japila.pl)](https://books.japila.pl/) - Free online books covering the internals of Apache Spark, Kafka, Delta Lake, and related tools.
 - [Jepsen analyses](https://jepsen.io/analyses) - Kyle Kingsbury's safety analyses of distributed databases, queues, and consensus systems.
 - [Designing Data-Intensive Applications reading list](https://github.com/aphyr/distsys-class) - Kyle Kingsbury's distributed systems course materials and reading list.
+
+## FAQ
+
+### What is the best OLAP database
+
+There is no single best OLAP database — the right choice depends on your latency, scale, and operational constraints:
+
+- **ClickHouse** — best raw query speed on a single node or small cluster; ideal for user-facing analytics, logs, and event data.
+- **Apache Druid / Apache Pinot** — best for sub-second queries at high concurrency over streaming-ingested data (ad tech, real-time dashboards).
+- **StarRocks** — strong alternative to ClickHouse/Druid for hybrid batch+streaming with a MySQL-compatible interface.
+- **DuckDB** — best for local or embedded analytics on files (Parquet, CSV); no server required.
+- **Trino / PrestoDB** — best for federated queries across heterogeneous sources (S3, Hive, RDBMS) without moving data.
+- **Apache Spark** — best for large-scale batch ETL and ML pipelines where latency is not critical.
+- **Snowflake / BigQuery / Redshift** — best when you want fully managed infrastructure with elastic scaling and no ops overhead.
+
+### OLAP vs OLTP
+
+| | OLAP | OLTP |
+| --- | --- | --- |
+| **Workload** | Complex analytical queries (aggregations, scans) | Simple transactional queries (reads/writes by key) |
+| **Storage** | Columnar | Row-oriented |
+| **Typical query** | `SELECT sum(revenue) GROUP BY region` | `SELECT * FROM orders WHERE id = 42` |
+| **Scale** | Billions of rows, read-heavy | Millions of rows, write-heavy |
+| **Examples** | ClickHouse, Druid, BigQuery | PostgreSQL, MySQL, DynamoDB |
+
+### What is a data lakehouse
+
+A **data lakehouse** combines the low-cost scalable storage of a data lake (files on S3/GCS/ADLS) with the ACID transactions, schema enforcement, and query performance of a data warehouse. Open table formats like Apache Iceberg, Delta Lake, and Apache Hudi implement the lakehouse pattern on top of Parquet files.
+
+### Kafka vs Pulsar
+
+**Apache Kafka** is the de facto standard with the largest ecosystem, best tooling support, and widest operator knowledge. **Apache Pulsar** offers multi-tenancy, geo-replication, and a decoupled storage layer (via BookKeeper) out of the box — useful when those features are required from day one. Most teams should start with Kafka.
+
+### Open table formats: Iceberg vs Delta Lake vs Hudi
+
+| | Iceberg | Delta Lake | Hudi |
+| --- | --- | --- | --- |
+| **Best for** | Large-scale analytics, multi-engine | Spark-native workloads, Databricks | CDC / upsert-heavy pipelines |
+| **Engine support** | Spark, Flink, Trino, Hive, Dremio | Spark (best), Flink, Trino | Spark, Flink |
+| **Upserts** | Merge-on-read or copy-on-write | Copy-on-write (merge-on-read in progress) | First-class, optimized |
+| **Governance** | Apache Foundation | Linux Foundation | Apache Foundation |
+
+See the [comparison links in the Open table formats section](#open-table-formats) for detailed benchmarks.
 
 ## People to follow
 
