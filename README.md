@@ -93,6 +93,12 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [Snowflake](https://www.snowflake.com/en/) - Cloud data platform with a decoupled storage and compute architecture, supporting multi-cloud deployments.
 - [Tinybird](https://www.tinybird.co/) - Real-time analytics API platform built on ClickHouse.
 
+## Storage engines
+
+Storage engines are the foundational frameworks on top of which higher-level databases and data systems are built. They handle durability, transactions, and low-level data organization.
+
+- [FoundationDB](https://www.foundationdb.org/) - Distributed ordered key-value store with full ACID transactions, designed as a reliable foundation layer for building higher-level databases and services.
+
 ## Data lake
 
 The data lake approach (or "lakehouse") is a semi-structured schema that sits on top of object storage in the cloud.
