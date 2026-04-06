@@ -1,4 +1,4 @@
-<!--lint disable awesome-toc-->
+<!--lint disable awesome-toc double-link-->
 <div align="center">
 
 # Awesome OLAP [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
@@ -11,7 +11,7 @@ A curated list of **OLAP databases**, **data engineering** tools, **columnar dat
 
 > **OLAP** (Online Analytical Processing) refers to databases and query engines optimized for complex, read-heavy analytical queries over large datasets. Unlike OLTP systems, OLAP databases use columnar storage, vectorized execution, and distributed processing to aggregate and analyze billions of rows in seconds.
 
-[Contributions welcome — see CONTRIBUTING.md](CONTRIBUTING.md)
+Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
 
 <!--lint disable awesome-list-item-->
 - [OLAP Databases](#olap-databases)
@@ -421,13 +421,13 @@ There is no single best OLAP database — the right choice depends on your laten
 
 ### OLAP vs OLTP
 
-| | OLAP | OLTP |
-| --- | --- | --- |
-| **Workload** | Complex analytical queries (aggregations, scans) | Simple transactional queries (reads/writes by key) |
-| **Storage** | Columnar | Row-oriented |
-| **Typical query** | `SELECT sum(revenue) GROUP BY region` | `SELECT * FROM orders WHERE id = 42` |
-| **Scale** | Billions of rows, read-heavy | Millions of rows, write-heavy |
-| **Examples** | ClickHouse, Druid, BigQuery | PostgreSQL, MySQL, DynamoDB |
+|                   | OLAP                                             | OLTP                                               |
+| ----------------- | ------------------------------------------------ | -------------------------------------------------- |
+| **Workload**      | Complex analytical queries (aggregations, scans) | Simple transactional queries (reads/writes by key) |
+| **Storage**       | Columnar                                         | Row-oriented                                       |
+| **Typical query** | `SELECT sum(revenue) GROUP BY region`            | `SELECT * FROM orders WHERE id = 42`               |
+| **Scale**         | Billions of rows, read-heavy                     | Millions of rows, write-heavy                      |
+| **Examples**      | ClickHouse, Druid, BigQuery                      | PostgreSQL, MySQL, DynamoDB                        |
 
 ### What is a data lakehouse
 
@@ -439,14 +439,14 @@ A **data lakehouse** combines the low-cost scalable storage of a data lake (file
 
 ### Open table formats: Iceberg vs Delta Lake vs Hudi
 
-| | Iceberg | Delta Lake | Hudi |
-| --- | --- | --- | --- |
-| **Best for** | Large-scale analytics, multi-engine | Spark-native workloads, Databricks | CDC / upsert-heavy pipelines |
-| **Engine support** | Spark, Flink, Trino, Hive, Dremio | Spark (best), Flink, Trino | Spark, Flink |
-| **Upserts** | Merge-on-read or copy-on-write | Copy-on-write (merge-on-read in progress) | First-class, optimized |
-| **Governance** | Apache Foundation | Linux Foundation | Apache Foundation |
+|                    | Iceberg                             | Delta Lake                                | Hudi                         |
+| ------------------ | ----------------------------------- | ----------------------------------------- | ---------------------------- |
+| **Best for**       | Large-scale analytics, multi-engine | Spark-native workloads, Databricks        | CDC / upsert-heavy pipelines |
+| **Engine support** | Spark, Flink, Trino, Hive, Dremio   | Spark (best), Flink, Trino                | Spark, Flink                 |
+| **Upserts**        | Merge-on-read or copy-on-write      | Copy-on-write (merge-on-read in progress) | First-class, optimized       |
+| **Governance**     | Apache Foundation                   | Linux Foundation                          | Apache Foundation            |
 
-See the [comparison links in the Open table formats section](#open-table-formats) for detailed benchmarks.
+See the comparison links in the Open table formats section for detailed benchmarks.
 
 ## People to follow
 
