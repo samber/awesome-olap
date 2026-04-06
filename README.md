@@ -66,7 +66,6 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [Apache HBase](https://hbase.apache.org/) - Distributed, wide-column NoSQL database on top of HDFS, modeled after Google Bigtable.
 - [Apache Pinot](https://pinot.apache.org/) - Distributed OLAP datastore for user-facing real-time analytics, designed for low-latency queries at high concurrency.
 - [ClickHouse](https://clickhouse.com) - Column-oriented DBMS for online analytical processing, capable of processing billions of rows per second.
-- [Dremio](https://www.dremio.com/) - SQL lakehouse platform providing a semantic layer and query acceleration on top of data lakes.
 - [StarRocks](https://www.starrocks.io/) - MPP OLAP database with vectorized execution engine, optimized for real-time analytics and high-concurrency workloads.
 
 ### Search engines
@@ -116,6 +115,7 @@ Fully managed cloud data warehouses trade self-hosted operational overhead for e
 Storage engines are the foundational frameworks on top of which higher-level databases and data systems are built. They handle durability, transactions, and low-level data organization.
 
 - [FoundationDB](https://www.foundationdb.org/) - Distributed ordered key-value store with full ACID transactions, designed as a reliable foundation layer for building higher-level databases and services.
+- [LevelDB](https://github.com/google/leveldb) - Google's embeddable key-value store using a log-structured merge-tree (LSM-tree); the inspiration for RocksDB and widely used in Blockchain and embedded systems.
 - [RocksDB](https://rocksdb.org/) - Embeddable persistent key-value store by Meta, optimized for fast storage and used as the storage engine inside many distributed databases (TiKV, CockroachDB, Kafka).
 
 ## Data lake
@@ -235,6 +235,7 @@ Non real-time SQL queries executed against a large database can be processed loc
 These SQL engines distribute SQL queries processing of very large database on a cluster. Support of ANSI SQL. Also called federated query engines, they can query across heterogeneous data sources.
 
 - [Apache Spark SQL](https://spark.apache.org/sql/) - Distributed SQL query engine that sit on top of Spark.
+- [Dremio](https://www.dremio.com/) - SQL lakehouse platform providing a semantic layer and query acceleration on top of data lakes.
 - [ksql](https://ksqldb.io/) - SQL interface for Kafka.
 - [PrestoDB](https://prestodb.io/) - Distributed SQL query engine.
 - [Trino](https://trino.io/) - Distributed SQL query engine. Fork of PrestoDB.
@@ -258,6 +259,7 @@ The popular acronym for Extracting, Transforming and Loading data (also called d
 
 - [Airbyte](https://airbyte.com/) - Open-source ELT platform with 300+ pre-built connectors for syncing data to your warehouse.
 - [Census](https://www.getcensus.com/) - Reverse ETL platform for syncing data warehouse data to CRMs, ad tools, and other SaaS.
+- [Debezium](https://debezium.io/) - Open-source CDC (Change Data Capture) platform that streams row-level changes from databases like PostgreSQL, MySQL, and MongoDB into Kafka and downstream systems.
 - [dbt](https://www.getdbt.com/) - SQL-based transformation framework that runs inside your warehouse; the standard tool for the T in ELT.
 - [RudderStack](https://www.rudderstack.com/) - Customer Data Platform providing a pipeline between a tracking plan, event transformation, and destination tools.
 
@@ -273,8 +275,13 @@ The popular acronym for Extracting, Transforming and Loading data (also called d
 
 ## Benchmark
 
+Benchmarks help select the right database for a workload. Always run benchmarks on your own data and query patterns — published numbers reflect vendor-tuned configurations.
+
+- [ClickBench](https://benchmark.clickhouse.com/) - De facto OLAP benchmark maintained by ClickHouse; covers 43 analytical queries on a 100GB web analytics dataset and includes results for 50+ engines.
 - [Jepsen](https://jepsen.io/) - Distributed databases, queues and consensus protocols testing.
-- [TPC family benchmarks](https://www.tpc.org/information/benchmarks5.asp) - For big data based database.
+- [TPC-DS](https://www.tpc.org/tpcds/) - Decision support benchmark modeling a retail data warehouse with 99 complex SQL queries across multiple fact and dimension tables.
+- [TPC-H](https://www.tpc.org/tpch/) - Business intelligence benchmark with 22 ad-hoc queries on supply-chain data; the most widely cited OLAP benchmark in academic literature.
+- [TPC family benchmarks](https://www.tpc.org/information/benchmarks5.asp) - Full catalog of TPC benchmarks for big data and analytical databases.
 
 ## Readings
 
