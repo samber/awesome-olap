@@ -80,7 +80,7 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [Grafana Mimir](https://grafana.com/oss/mimir/) - Prometheus-compatible TSDB on top of object storage, horizontally scalable.
 - [Prometheus](https://prometheus.io/) - Pull-based metrics collection and time series database, de facto standard for cloud-native monitoring.
 - [TimeScaleDB](https://www.timescale.com/) - PostgreSQL-compatible TSDB with automatic partitioning and time-series-specific SQL extensions.
-- [VictoriaMetrics](https://victoriametrics.com/) - Fast, cost-effective Prometheus-compatible TSDB, up to 20x better performance and 7x lower storage than InfluxDB.
+- [VictoriaMetrics](https://victoriametrics.com/) - Fast, cost-effective Prometheus-compatible TSDB with low memory and storage footprint.
 
 ### Managed cloud services
 
@@ -88,7 +88,7 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics) - Unified analytics service combining data integration, warehousing, and big data on Azure.
 - [Databricks](https://www.databricks.com/) - Lakehouse platform combining data warehousing and ML, built on Delta Lake and Apache Spark.
 - [Firebolt](https://www.firebolt.io/) - Cloud-native OLAP warehouse engineered for sub-second query performance at scale.
-- [Google Big Query](https://cloud.google.com/bigquery) - Serverless, pay-as-you-go data warehouse with built-in ML and BI capabilities.
+- [Google BigQuery](https://cloud.google.com/bigquery) - Serverless, pay-as-you-go data warehouse with built-in ML and BI capabilities.
 - [Snowflake](https://www.snowflake.com/en/) - Cloud data platform with a decoupled storage and compute architecture, supporting multi-cloud deployments.
 - [Tinybird](https://www.tinybird.co/) - Real-time analytics API platform built on ClickHouse.
 
@@ -120,7 +120,7 @@ Open table formats are abstraction layer on top of Avro/Parquet files, with supp
 
 Open tables are a cost-effective datawarehouse for petabyte scale.
 
-- [Apache Hive](https://hive.apache.org/) - Data warehouse software on top of Hadoop for SQL-like queries; one of the original open table formats.
+- [Apache Hive](https://hive.apache.org/) - SQL-based data warehouse and query engine on top of Hadoop, and the origin of the Hive Metastore used by modern table formats.
 - [Apache Hudi](https://hudi.apache.org/) - Open table format with strong CDC and upsert support, designed for incremental data pipelines.
 - [Apache Iceberg](https://iceberg.apache.org/) - Open table format for huge analytic datasets, with snapshot isolation, schema evolution, and partition pruning.
 - [DeltaLake](https://delta.io/) - Open table format bringing ACID transactions and scalable metadata to Apache Spark and beyond.
@@ -164,7 +164,7 @@ Comparison:
 - [Apache Kafka](https://kafka.apache.org/) - Distributed event streaming platform, the de facto standard for high-throughput data pipelines and event-driven architectures.
 - [Apache Pulsar](https://pulsar.apache.org/) - Distributed messaging and streaming platform with multi-tenancy, geo-replication, and a decoupled storage layer.
 - [NATS / JetStream](https://nats.io/) - Lightweight cloud-native messaging system; JetStream adds persistence, replay, and streaming semantics.
-- [Rabbitmq Streams](https://www.rabbitmq.com/streams.html) - Persistent, append-only log streams for RabbitMQ, enabling high-throughput message replay and fan-out.
+- [RabbitMQ Streams](https://www.rabbitmq.com/streams.html) - Persistent, append-only log streams for RabbitMQ, enabling high-throughput message replay and fan-out.
 - [Redpanda](https://redpanda.com/) - Kafka-compatible streaming data platform written in C++, with no ZooKeeper dependency and lower latency.
 
 ## Ingestion and querying
@@ -173,7 +173,7 @@ Comparison:
 
 Process a set of data in real-time (or near-real-time), as it is being generated.
 
-- [Akka stream](https://doc.akka.io/docs/akka/current/stream/index.html) - Reactive stream processing library for JVM, built on the actor model.
+- [Akka Streams](https://doc.akka.io/docs/akka/current/stream/index.html) - Reactive stream processing library for JVM, built on the actor model.
 - [Apache Beam](https://beam.apache.org/) - Unified SDK for cross-language stream and batch processing. Available in Go, Python, Java, Scala and TypeScript.
 - [Apache Flink](https://flink.apache.org/) - Stateful stream processing with exactly-once semantics, supporting event time and out-of-order data.
 - [Apache Kafka Streams](https://kafka.apache.org/documentation/streams/) - Lightweight stream processing library embedded in the Kafka client, no separate cluster required.
@@ -194,7 +194,7 @@ Process periodically a large amount of data in a single batch.
 Non real-time SQL queries executed against a large database can be processed locally. This method might not fit into memory or lead to very long job duration.
 
 - [Apache Arrow](https://arrow.apache.org/) - Low-level in-memory columnar data format with zero-copy access across languages via gRPC/IPC interfaces.
-- [Apache Arrow Datafusion](https://arrow.apache.org/datafusion/) - High-level SQL and DataFrame query engine built on Apache Arrow, written in Rust.
+- [Apache Arrow DataFusion](https://arrow.apache.org/datafusion/) - High-level SQL and DataFrame query engine built on Apache Arrow, written in Rust.
 - [chDB](https://github.com/chdb-io/chdb) - Embeddable in-process OLAP engine powered by ClickHouse, callable from Python without a server.
 - [clickhouse-local](https://clickhouse.com/docs/en/operations/utilities/clickhouse-local) - Lightweight CLI version of ClickHouse for running SQL queries against CSV, JSON, Parquet and other files.
 - [delta-rs](https://github.com/delta-io/delta-rs) - Standalone DeltaLake driver for Python and Rust. Does not depend on Spark.
