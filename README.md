@@ -72,7 +72,7 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [Typesense](https://typesense.org/) - Оpen-source, typo-tolerant search engine optimized for instant search-as-you-type experiences and developer productivity.
 
 ### Hybrid OLAP/OLTP NewSQL (aka HTAP)
- 
+
 - [Citus](https://www.citusdata.com/) - PostgreSQL compatible distributed table.
 - [TiDB](https://github.com/pingcap/tidb) - MySQL compatible SQL database that supports hybrid transactional and analytical processing workloads.
 
@@ -159,10 +159,9 @@ Comparison:
 - [Brotli](https://en.wikipedia.org/wiki/Brotli)
 - [Deflate](https://en.wikipedia.org/wiki/Deflate)
 - [Delta](https://en.wikipedia.org/wiki/Delta_encoding)
-- [Dictionary](https://www.linkedin.com/pulse/encodings-parquet-akhil-pathirippilly-mana/)
+- [Dictionary + RLE](https://www.linkedin.com/pulse/encodings-parquet-akhil-pathirippilly-mana/)
 - [Gorilla](https://dl.acm.org/doi/10.14778/2824032.2824078)
 - [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm))
-- [RLE](https://www.linkedin.com/pulse/encodings-parquet-akhil-pathirippilly-mana)
 - [Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))
 - [zstd](https://en.wikipedia.org/wiki/Zstd)
 
@@ -363,21 +362,21 @@ Dedicated vector databases:
 
 ## People to follow
 
-| Name | Description | GitHub | Twitter/X | LinkedIn | Bluesky |
-|------|-------------|--------|-----------|----------|---------|
-| Alexey Milovidov | Co-founder and CTO of ClickHouse | [alexey-milovidov](https://github.com/alexey-milovidov) | [@fdooch123](https://x.com/fdooch123) | [in/alexey-milovidov-clickhouse](https://www.linkedin.com/in/alexey-milovidov-clickhouse) | |
-| Hannes Mühleisen | Co-creator of DuckDB, CEO of DuckDB Labs | [hannes](https://github.com/hannes) | [@hfmuehleisen](https://x.com/hfmuehleisen) | [in/hfmuehleisen](https://www.linkedin.com/in/hfmuehleisen) | [bsky](https://bsky.app/profile/hannes.muehleisen.org) |
-| Mark Raasveldt | Co-creator of DuckDB | [Mytherin](https://github.com/Mytherin) | [@mraasveldt](https://x.com/mraasveldt) | [in/mark-raasveldt-256b9a70](https://www.linkedin.com/in/mark-raasveldt-256b9a70) | [bsky](https://bsky.app/profile/markraasveldt.bsky.social) |
-| Wes McKinney | Creator of pandas, co-creator of Apache Arrow and Parquet | [wesm](https://github.com/wesm) | [@wesmckinn](https://x.com/wesmckinn) | [in/wesmckinn](https://www.linkedin.com/in/wesmckinn/) | [bsky](https://bsky.app/profile/wesmckinney.com) |
-| Martin Traverso | Creator of Presto and Trino, CTO at Starburst | [martint](https://github.com/martint) | [@mtraverso](https://x.com/mtraverso) | [in/traversomartin](https://www.linkedin.com/in/traversomartin/) | |
-| Matei Zaharia | Creator of Apache Spark, co-founder and CTO of Databricks | [mateiz](https://github.com/mateiz) | [@matei_zaharia](https://x.com/matei_zaharia) | [in/mateizaharia](https://www.linkedin.com/in/mateizaharia/) | |
-| Jacques Nadeau | Co-creator of Apache Arrow, Apache Drill, and Dremio | [jacques-n](https://github.com/jacques-n) | | [in/jacquesnadeau](https://www.linkedin.com/in/jacquesnadeau/) | [bsky](https://bsky.app/profile/jdata.bsky.social) |
-| Andrew Lamb | PMC member for Apache Arrow, DataFusion, and Parquet | [alamb](https://github.com/alamb) | [@andrewlamb1111](https://x.com/andrewlamb1111) | [in/andrewalamb](https://www.linkedin.com/in/andrewalamb/) | [bsky](https://bsky.app/profile/andrewlamb1111.bsky.social) |
-| Andy Grove | PMC member of Apache Arrow and DataFusion. Author of "How Query Engines Work" | [andygrove](https://github.com/andygrove) | | [in/andygrove](https://www.linkedin.com/in/andygrove/) | [bsky](https://bsky.app/profile/andygrove.io) |
-| Tristan Handy | Founder and CEO of dbt Labs | [jthandy](https://github.com/jthandy) | [@jthandy](https://x.com/jthandy) | [in/tristanhandy](https://www.linkedin.com/in/tristanhandy) | [bsky](https://bsky.app/profile/jthandy.bsky.social) |
-| Fokko Driesprong | PMC member on Apache Avro, Airflow, Druid, Iceberg, and Parquet | [Fokko](https://github.com/Fokko) | [@_Fokko](https://x.com/_Fokko) | [in/fokkodriesprong](https://www.linkedin.com/in/fokkodriesprong) | |
-| Gian Merlino | Co-founder and CTO of Imply, co-creator of Apache Druid | [gianm](https://github.com/gianm) | [@gianmerlino](https://x.com/gianmerlino) | [in/gianmerlino](https://www.linkedin.com/in/gianmerlino) | |
-| Phil Eaton | Database and systems engineer, writer on database internals | [eatonphil](https://github.com/eatonphil) | [@eatonphil](https://x.com/eatonphil) | [in/eatonphil](https://www.linkedin.com/in/eatonphil/) | [bsky](https://bsky.app/profile/eatonphil.bsky.social) |
+| Name              | Description                                                                   | GitHub                                                  | Twitter/X                                       | LinkedIn                                                                                  | Bluesky                                                     |
+| ----------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Alexey Milovidov  | Co-founder and CTO of ClickHouse                                              | [alexey-milovidov](https://github.com/alexey-milovidov) | [@fdooch123](https://x.com/fdooch123)           | [in/alexey-milovidov-clickhouse](https://www.linkedin.com/in/alexey-milovidov-clickhouse) |                                                             |
+| Hannes Mühleisen  | Co-creator of DuckDB, CEO of DuckDB Labs                                      | [hannes](https://github.com/hannes)                     | [@hfmuehleisen](https://x.com/hfmuehleisen)     | [in/hfmuehleisen](https://www.linkedin.com/in/hfmuehleisen)                               | [bsky](https://bsky.app/profile/hannes.muehleisen.org)      |
+| Mark Raasveldt    | Co-creator of DuckDB                                                          | [Mytherin](https://github.com/Mytherin)                 | [@mraasveldt](https://x.com/mraasveldt)         | [in/mark-raasveldt-256b9a70](https://www.linkedin.com/in/mark-raasveldt-256b9a70)         | [bsky](https://bsky.app/profile/markraasveldt.bsky.social)  |
+| Wes McKinney      | Creator of Pandas, co-creator of Apache Arrow and Parquet                     | [wesm](https://github.com/wesm)                         | [@wesmckinn](https://x.com/wesmckinn)           | [in/wesmckinn](https://www.linkedin.com/in/wesmckinn/)                                    | [bsky](https://bsky.app/profile/wesmckinney.com)            |
+| Martin Traverso   | Creator of Presto and Trino, CTO at Starburst                                 | [martint](https://github.com/martint)                   | [@mtraverso](https://x.com/mtraverso)           | [in/traversomartin](https://www.linkedin.com/in/traversomartin/)                          |                                                             |
+| Matei Zaharia     | Creator of Apache Spark, co-founder and CTO of Databricks                     | [mateiz](https://github.com/mateiz)                     | [@matei_zaharia](https://x.com/matei_zaharia)   | [in/mateizaharia](https://www.linkedin.com/in/mateizaharia/)                              |                                                             |
+| Jacques Nadeau    | Co-creator of Apache Arrow, Apache Drill, and Dremio                          | [jacques-n](https://github.com/jacques-n)               |                                                 | [in/jacquesnadeau](https://www.linkedin.com/in/jacquesnadeau/)                            | [bsky](https://bsky.app/profile/jdata.bsky.social)          |
+| Andrew Lamb       | PMC member for Apache Arrow, DataFusion, and Parquet                          | [alamb](https://github.com/alamb)                       | [@andrewlamb1111](https://x.com/andrewlamb1111) | [in/andrewalamb](https://www.linkedin.com/in/andrewalamb/)                                | [bsky](https://bsky.app/profile/andrewlamb1111.bsky.social) |
+| Andy Grove        | PMC member of Apache Arrow and DataFusion. Author of "How Query Engines Work" | [andygrove](https://github.com/andygrove)               |                                                 | [in/andygrove](https://www.linkedin.com/in/andygrove/)                                    | [bsky](https://bsky.app/profile/andygrove.io)               |
+| Tristan Handy     | Founder and CEO of dbt Labs                                                   | [jthandy](https://github.com/jthandy)                   | [@jthandy](https://x.com/jthandy)               | [in/tristanhandy](https://www.linkedin.com/in/tristanhandy)                               | [bsky](https://bsky.app/profile/jthandy.bsky.social)        |
+| Fokko Driesprong  | PMC member on Apache Avro, Airflow, Druid, Iceberg, and Parquet               | [Fokko](https://github.com/Fokko)                       | [@_Fokko](https://x.com/_Fokko)                 | [in/fokkodriesprong](https://www.linkedin.com/in/fokkodriesprong)                         |                                                             |
+| Gian Merlino      | Co-founder and CTO of Imply, co-creator of Apache Druid                       | [gianm](https://github.com/gianm)                       | [@gianmerlino](https://x.com/gianmerlino)       | [in/gianmerlino](https://www.linkedin.com/in/gianmerlino)                                 |                                                             |
+| Phil Eaton        | Database and systems engineer, writer on database internals                   | [eatonphil](https://github.com/eatonphil)               | [@eatonphil](https://x.com/eatonphil)           | [in/eatonphil](https://www.linkedin.com/in/eatonphil/)                                    | [bsky](https://bsky.app/profile/eatonphil.bsky.social)      |
 
 ## Events
 
