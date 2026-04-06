@@ -71,6 +71,8 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 
 ### Search engines
 
+Search engines complement OLAP systems for full-text search and log analytics use cases, where keyword relevance and inverted indexes matter more than aggregate query performance.
+
 - [Elasticsearch](https://www.elastic.co/) - Search and analytics engine based on Apache Lucene.
 - [Meilisearch](https://www.meilisearch.com/) - Open source search engine, that aims to be a ready-to-go solution.
 - [OpenSearch](https://opensearch.org/) - Apache 2.0 fork of Elasticsearch.
@@ -79,12 +81,16 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 
 ### Hybrid OLAP/OLTP NewSQL (aka HTAP)
 
+HTAP (Hybrid Transactional-Analytical Processing) databases handle both transactional writes and analytical reads in a single engine, eliminating the need to maintain a separate data warehouse for reporting.
+
 - [Citus](https://www.citusdata.com/) - PostgreSQL compatible distributed table.
 - [CockroachDB](https://www.cockroachlabs.com/) - Distributed SQL database with strong consistency, horizontal scaling, and PostgreSQL compatibility for HTAP workloads.
 - [TiDB](https://github.com/pingcap/tidb) - MySQL compatible SQL database that supports hybrid transactional and analytical processing workloads.
 - [YugabyteDB](https://www.yugabyte.com/) - Distributed SQL database compatible with PostgreSQL and Cassandra APIs, designed for global, cloud-native HTAP applications.
 
 ### Timeseries
+
+Time-series databases are optimized for append-heavy workloads where data is tagged, timestamped, and queried by time range — distinct from general OLAP because they prioritize ingestion throughput, automatic retention, and time-aligned aggregations.
 
 - [Grafana Mimir](https://grafana.com/oss/mimir/) - Prometheus-compatible TSDB on top of object storage, horizontally scalable.
 - [InfluxDB](https://www.influxdata.com/) - Purpose-built time series database optimized for high-write-throughput metrics, events, and IoT data with a SQL-like query language.
@@ -94,6 +100,8 @@ The following columnar databases use a [shared-nothing architecture](https://en.
 - [VictoriaMetrics](https://victoriametrics.com/) - Fast, cost-effective Prometheus-compatible TSDB with low memory and storage footprint.
 
 ### Managed cloud services
+
+Fully managed cloud data warehouses trade self-hosted operational overhead for elastic scaling and pay-as-you-go pricing. All handle petabyte-scale analytics; they differ in cost model, latency profile, and ecosystem integrations.
 
 - [AWS Redshift](https://aws.amazon.com/redshift/) - Fully managed petabyte-scale data warehouse on AWS.
 - [Azure Synapse Analytics](https://azure.microsoft.com/en-us/products/synapse-analytics) - Unified analytics service combining data integration, warehousing, and big data on Azure.
@@ -178,6 +186,8 @@ Comparison:
 
 ## Brokers and distributed messaging
 
+Message brokers sit between producers and consumers in the data stack, providing durable, ordered event streams that decouple ingestion from processing and enable replay, fan-out, and exactly-once delivery semantics.
+
 - [Apache Kafka](https://kafka.apache.org/) - Distributed event streaming platform, the de facto standard for high-throughput data pipelines and event-driven architectures.
 - [Apache Pulsar](https://pulsar.apache.org/) - Distributed messaging and streaming platform with multi-tenancy, geo-replication, and a decoupled storage layer.
 - [NATS / JetStream](https://nats.io/) - Lightweight cloud-native messaging system; JetStream adds persistence, replay, and streaming semantics.
@@ -188,7 +198,7 @@ Comparison:
 
 ### Stream processing
 
-Process a set of data in real-time (or near-real-time), as it is being generated.
+Real-time data processing (also called event streaming) handles data as it is generated — enabling low-latency pipelines, continuous aggregations, and immediate downstream reactions to events.
 
 - [Akka Streams](https://doc.akka.io/docs/akka/current/stream/index.html) - Reactive stream processing library for JVM, built on the actor model.
 - [Apache Beam](https://beam.apache.org/) - Unified SDK for cross-language stream and batch processing. Available in Go, Python, Java, Scala and TypeScript.
@@ -222,7 +232,7 @@ Non real-time SQL queries executed against a large database can be processed loc
 
 ### Distributed SQL processing
 
-These SQL engines distribute SQL queries processing of very large database on a cluster. Support of ANSI SQL.
+These SQL engines distribute SQL queries processing of very large database on a cluster. Support of ANSI SQL. Also called federated query engines, they can query across heterogeneous data sources.
 
 - [Apache Spark SQL](https://spark.apache.org/sql/) - Distributed SQL query engine that sit on top of Spark.
 - [ksql](https://ksqldb.io/) - SQL interface for Kafka.
@@ -231,7 +241,7 @@ These SQL engines distribute SQL queries processing of very large database on a 
 
 ## Scheduler
 
-These tools allow to orchestrate, schedule and monitor repetitive data transformations, in a workflow manner.
+Orchestrators define and monitor complex multi-step DAG workflows with dependency management, retries, and observability. Cron-style schedulers simply trigger jobs at fixed time intervals. The tools below are full orchestrators.
 
 - [Apache Airflow](https://airflow.apache.org/) - Platform for programmatically authoring, scheduling, and monitoring data pipelines as DAGs.
 - [Dagster](https://dagster.io/) - Data orchestration platform with an asset-centric approach, lineage tracking, and built-in observability.
@@ -244,7 +254,7 @@ Durable execution frameworks guarantee that workflows survive process crashes, n
 
 ## ETL, ELT and reverse ETL
 
-The popular acronym for Extracting, Transforming and Loading data. ELT performs data transformations directly within the data warehouse. Reverse ETL is the process of copying data from your datawarehouse to external tools or SaaS.
+The popular acronym for Extracting, Transforming and Loading data (also called data pipeline tools or data integration). ELT performs data transformations directly within the data warehouse. Reverse ETL is the process of copying data from your datawarehouse to external tools or SaaS.
 
 - [Airbyte](https://airbyte.com/) - Open-source ELT platform with 300+ pre-built connectors for syncing data to your warehouse.
 - [Census](https://www.getcensus.com/) - Reverse ETL platform for syncing data warehouse data to CRMs, ad tools, and other SaaS.
