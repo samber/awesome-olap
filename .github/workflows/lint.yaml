@@ -19,7 +19,7 @@ jobs:
           with:
             fetch-depth: 0
         - name: "setup node"
-          uses: actions/setup-node@v4
+          uses: actions/setup-node@v6
         - name: "linting: ${{ matrix.files }}"
           run: npx -y awesome-lint ${{ matrix.files }}
     awesome-bot:
