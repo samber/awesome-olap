@@ -285,7 +285,7 @@ Large-scale public datasets commonly used for benchmarking OLAP databases, query
 - [Entso-e](https://www.entsoe.eu/data/power-stats/) - European electricity generation and consumption statistics, useful for time-series and energy analytics benchmarks.
 - [GitHub Archives](https://www.gharchive.org/) - Timestamped record of all public GitHub events; a popular dataset for querying with ClickHouse, BigQuery, and DuckDB.
 - [Kaggle](https://www.kaggle.com/) - Community-sourced datasets and competitions covering a wide range of domains.
-- [NYCTaxy](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) - NYC taxi trip records dating back to 2009; a classic columnar query benchmark with billions of rows.
+- [NYCTaxi](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) - NYC taxi trip records dating back to 2009; a classic columnar query benchmark with billions of rows.
 
 ## Benchmark
 
