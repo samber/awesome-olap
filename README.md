@@ -152,8 +152,9 @@ Open tables are a cost-effective datawarehouse for petabyte scale.
 - [DeltaLake](https://delta.io/) - Open table format bringing ACID transactions and scalable metadata to Apache Spark and beyond.
 
 Comparison:
-- (2022) https://medium.com/geekculture/open-table-formats-delta-iceberg-hudi-732f682ec0bb
-- (2023) https://aws.amazon.com/blogs/big-data/choosing-an-open-table-format-for-your-transactional-data-lake-on-aws/
+- [(2022) Open Table Formats: Delta vs Iceberg vs Hudi](https://medium.com/geekculture/open-table-formats-delta-iceberg-hudi-732f682ec0bb)
+- [(2023) Choosing an open table format for your transactional data lake on AWS](https://aws.amazon.com/blogs/big-data/choosing-an-open-table-format-for-your-transactional-data-lake-on-aws/)
+- [(2024) Apache Iceberg vs Delta Lake vs Apache Hudi: Choosing the Right Table Format](https://www.onehouse.ai/blog/apache-iceberg-vs-delta-lake-vs-apache-hudi-choosing-the-right-table-format)
 
 👆 Warning: pre-2022 articles should be considered as out-of-date, as open table formats are evolving quickly.
 
@@ -174,15 +175,15 @@ Comparison:
 
 ### Codecs, encoding and compression
 
-- [Bit packing](https://kinematicsoup.com/news/2016/9/6/data-compression-bit-packing-101)
-- [Brotli](https://en.wikipedia.org/wiki/Brotli)
-- [Deflate](https://en.wikipedia.org/wiki/Deflate)
-- [Delta](https://en.wikipedia.org/wiki/Delta_encoding)
-- [Dictionary + RLE](https://www.linkedin.com/pulse/encodings-parquet-akhil-pathirippilly-mana/)
-- [Gorilla](https://dl.acm.org/doi/10.14778/2824032.2824078)
-- [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm))
-- [Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))
-- [zstd](https://en.wikipedia.org/wiki/Zstd)
+- [Bit packing](https://kinematicsoup.com/news/2016/9/6/data-compression-bit-packing-101) - Encoding integers using only the bits required, eliminating wasted high-order zeros in columnar data.
+- [Brotli](https://en.wikipedia.org/wiki/Brotli) - General-purpose lossless compression by Google, offering better ratios than gzip at comparable speed.
+- [Deflate](https://en.wikipedia.org/wiki/Deflate) - Classic lossless compression combining LZ77 and Huffman coding; the basis of gzip and zlib.
+- [Delta](https://en.wikipedia.org/wiki/Delta_encoding) - Stores differences between successive values instead of absolutes, ideal for monotonically increasing columns like timestamps.
+- [Dictionary + RLE](https://www.linkedin.com/pulse/encodings-parquet-akhil-pathirippilly-mana/) - Replaces repeated values with dictionary codes, then run-length encodes consecutive duplicates; effective for low-cardinality columns.
+- [Gorilla](https://dl.acm.org/doi/10.14778/2824032.2824078) - Facebook's XOR-based float compression for time-series metrics, achieving 1.37 bytes/value on typical monitoring data.
+- [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)) - Extremely fast lossless compression algorithm prioritizing throughput over ratio, widely used in real-time pipelines.
+- [Snappy](https://en.wikipedia.org/wiki/Snappy_(compression)) - Google's fast lossless codec optimized for speed over compression ratio, default in many Hadoop/Parquet deployments.
+- [zstd](https://en.wikipedia.org/wiki/Zstd) - Facebook's modern lossless codec delivering high compression ratios at fast speeds; often preferred over gzip in data lakes.
 
 ## Brokers and distributed messaging
 
@@ -265,13 +266,15 @@ The popular acronym for Extracting, Transforming and Loading data (also called d
 
 ## Datasets
 
-- [awesome-public-datasets](https://github.com/awesomedata/awesome-public-datasets)
-- [CommonCrawl](https://commoncrawl.org/)
-- [Criteo](https://ailab.criteo.com/download-criteo-1tb-click-logs-dataset/)
-- [Entso-e](https://www.entsoe.eu/data/power-stats/)
-- [GitHub Archives](https://www.gharchive.org/)
-- [Kaggle](https://www.kaggle.com/) - Community sourced dataset.
-- [NYCTaxy](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+Large-scale public datasets commonly used for benchmarking OLAP databases, query engines, and data lake tools.
+
+- [awesome-public-datasets](https://github.com/awesomedata/awesome-public-datasets) - Curated list of high-quality public datasets organized by domain.
+- [CommonCrawl](https://commoncrawl.org/) - Petabyte-scale web crawl dataset updated monthly; used for NLP, analytics, and link graph research.
+- [Criteo](https://ailab.criteo.com/download-criteo-1tb-click-logs-dataset/) - 1TB click log dataset from Criteo, a standard benchmark for ad-tech and high-cardinality analytics workloads.
+- [Entso-e](https://www.entsoe.eu/data/power-stats/) - European electricity generation and consumption statistics, useful for time-series and energy analytics benchmarks.
+- [GitHub Archives](https://www.gharchive.org/) - Timestamped record of all public GitHub events; a popular dataset for querying with ClickHouse, BigQuery, and DuckDB.
+- [Kaggle](https://www.kaggle.com/) - Community-sourced datasets and competitions covering a wide range of domains.
+- [NYCTaxy](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) - NYC taxi trip records dating back to 2009; a classic columnar query benchmark with billions of rows.
 
 ## Benchmark
 
@@ -297,11 +300,14 @@ Benchmarks help select the right database for a workload. Always run benchmarks 
 ### Architecture
 
 - [CoW vs MoR](https://www.onehouse.ai/blog/comparing-apache-hudis-mor-and-cow-tables-use-cases-from-uber-and-shopee)
+- [CQRS (Command Query Responsibility Segregation)](https://martinfowler.com/bliki/CQRS.html)
 - [DAG](https://docs.getdbt.com/terms/dag)
+- [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
 - [Kappa architecture](https://milinda.pathirage.org/kappa-architecture.com/)
 - [Lambda architecture](https://www.snowflake.com/guides/lambda-architecture)
 - [Medallion architecture](https://dataengineering.wiki/Concepts/Medallion+Architecture)
 - [Reactive programming](https://reactivex.io/)
+- [Star schema vs Snowflake schema](https://www.databricks.com/glossary/star-schema)
 
 ### Data modeling
 
@@ -383,10 +389,10 @@ Dedicated vector databases:
 
 ### More
 
-- https://www.moderndatastack.xyz/
-- https://books.japila.pl/
-- https://jepsen.io/analyses
-- https://github.com/aphyr/distsys-class
+- [Modern Data Stack](https://www.moderndatastack.xyz/) - Directory of tools and companies in the modern data stack ecosystem.
+- [The Internals Of... (books.japila.pl)](https://books.japila.pl/) - Free online books covering the internals of Apache Spark, Kafka, Delta Lake, and related tools.
+- [Jepsen analyses](https://jepsen.io/analyses) - Kyle Kingsbury's safety analyses of distributed databases, queues, and consensus systems.
+- [Designing Data-Intensive Applications reading list](https://github.com/aphyr/distsys-class) - Kyle Kingsbury's distributed systems course materials and reading list.
 
 ## People to follow
 
