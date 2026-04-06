@@ -262,8 +262,8 @@ The popular acronym for Extracting, Transforming and Loading data (also called d
 
 - [Airbyte](https://airbyte.com/) - Open-source ELT platform with 300+ pre-built connectors for syncing data to your warehouse.
 - [Census](https://www.getcensus.com/) - Reverse ETL platform for syncing data warehouse data to CRMs, ad tools, and other SaaS.
-- [Debezium](https://debezium.io/) - Open-source CDC (Change Data Capture) platform that streams row-level changes from databases like PostgreSQL, MySQL, and MongoDB into Kafka and downstream systems.
 - [dbt](https://www.getdbt.com/) - SQL-based transformation framework that runs inside your warehouse; the standard tool for the T in ELT.
+- [Debezium](https://debezium.io/) - Open-source CDC (Change Data Capture) platform that streams row-level changes from databases like PostgreSQL, MySQL, and MongoDB into Kafka and downstream systems.
 - [RudderStack](https://www.rudderstack.com/) - Customer Data Platform providing a pipeline between a tracking plan, event transformation, and destination tools.
 
 ## BI & Visualization
