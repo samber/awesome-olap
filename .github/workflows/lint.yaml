@@ -42,4 +42,4 @@ jobs:
         - name: "install awesome-bot"
           run: gem install awesome_bot
         - name: "linting: ${{ matrix.files }}"
-          run: awesome_bot --allow-redirect --white-list https://github.com/samber/awesome-olap,https://www.linkedin.com,https://x.com,https://twitter.com,https://discord.gg ${{ matrix.files }}
+          run: awesome_bot --allow-redirect --white-list https://github.com/samber/awesome-olap,https://www.linkedin.com,https://x.com,https://twitter.com,https://discord.gg,https://medium.com,https://dl.acm.org,https://www.entsoe.eu,https://www.moderndatastack.xyz ${{ matrix.files }}
