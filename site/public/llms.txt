@@ -1,0 +1,41 @@
+# Awesome OLAP
+
+> A curated list of OLAP databases, data engineering tools, columnar databases, data lake and lakehouse frameworks — 100+ tools across 20+ categories, for data engineers.
+
+## What is this?
+
+Awesome OLAP is an open-source reference list maintained by Samuel Berthe. It tracks the OLAP and analytical data engineering ecosystem: databases, query engines, storage formats, table formats, ETL tools, schedulers, BI tools, and more.
+
+OLAP (Online Analytical Processing) refers to databases and query engines optimized for complex, read-heavy analytical queries over large datasets. Unlike OLTP systems, OLAP databases use columnar storage, vectorized execution, and distributed processing to aggregate and analyze billions of rows in seconds.
+
+## Coverage
+
+- **OLAP Databases** — ClickHouse, Apache Druid, Apache Pinot, StarRocks, Doris, DuckDB, Firebolt, CrateDB, Databend, Byconity, and more
+- **Real-time analytics** — sub-second query latency databases
+- **Search engines** — Elasticsearch, OpenSearch, Meilisearch, Quickwit, Manticore, Typesense
+- **Hybrid OLAP/OLTP (HTAP)** — TiDB, SingleStore, YugabyteDB, CockroachDB
+- **Timeseries databases** — InfluxDB, TimescaleDB, QuestDB, TDengine, Prometheus
+- **Managed cloud services** — Snowflake, BigQuery, Redshift, Databricks
+- **Storage engines** — RocksDB, LSM-tree and B-tree variants
+- **Data lake file formats** — Apache Parquet, Apache ORC, Apache Avro, Apache Arrow
+- **Open table formats** — Apache Iceberg, Delta Lake, Apache Hudi
+- **Metastore** — Apache Hive Metastore, AWS Glue, Nessie, Unity Catalog
+- **Object storage** — MinIO, Ceph, SeaweedFS
+- **Codecs and compression** — LZ4, Zstandard, Snappy, Brotli, GZIP
+- **Brokers and distributed messaging** — Apache Kafka, Apache Pulsar, Redpanda, NATS
+- **Stream processing** — Apache Flink, Apache Spark Streaming, Bytewax
+- **Batch processing** — Apache Spark, Apache Beam, Trino, Presto, Dask
+- **In-memory processing** — Apache Arrow DataFusion, Polars, pandas, DuckDB
+- **Distributed SQL** — Trino, Presto, StarRocks
+- **Schedulers** — Apache Airflow, Prefect, Dagster, Mage
+- **Durable execution** — Temporal, Conductor
+- **ETL, ELT and reverse ETL** — Apache NiFi, Airbyte, Fivetran, dbt, Meltano
+- **BI & Visualization** — Apache Superset, Grafana, Metabase, Redash, Lightdash
+- **Datasets** — TPC-H, TPC-DS, ClickBench
+- **Benchmarks** — ClickBench, TPC-H, TPC-DS comparisons
+
+## Links
+
+- Source: https://github.com/samber/awesome-olap
+- Website: https://samber.github.io/awesome-olap/
+- GitHub: https://github.com/samber

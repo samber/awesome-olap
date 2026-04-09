@@ -1,0 +1,205 @@
+---
+import { execFileSync } from 'node:child_process';
+import { resolve } from 'node:path';
+import { readFileSync } from 'node:fs';
+
+const SITE_URL = 'https://samber.github.io/awesome-olap/';
+
+// Count list items in README to keep numberOfItems accurate at build time.
+const readmePath = resolve(process.cwd(), '..', 'README.md');
+const readmeText = readFileSync(readmePath, 'utf-8');
+const numberOfItems = (readmeText.match(/^- \[/gm) ?? []).length;
+
+// Use last git commit date for dateModified.
+let dateModified: string;
+try {
+  dateModified = execFileSync('git', ['log', '-1', '--format=%cI', '--', '../README.md'], { encoding: 'utf-8' }).trim();
+  if (!dateModified) throw new Error('empty');
+} catch {
+  dateModified = new Date().toISOString();
+}
+const title = 'Awesome OLAP – Curated list of OLAP databases and data engineering tools';
+const description =
+  'A curated list of OLAP databases, data engineering tools, columnar databases, data lake and lakehouse frameworks — covering 100+ tools across 20+ categories, for data engineers.';
+
+const author = {
+  '@type': 'Person',
+  '@id': `${SITE_URL}#author`,
+  name: 'Samuel Berthe',
+  url: 'https://github.com/samber',
+  sameAs: ['https://github.com/samber'],
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}#website`,
+      name: 'Awesome OLAP',
+      url: SITE_URL,
+      description,
+      inLanguage: 'en',
+      author: { '@id': `${SITE_URL}#author` },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${SITE_URL}#\${search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+    {
+      '@type': 'CollectionPage',
+      '@id': `${SITE_URL}#page`,
+      name: 'Awesome OLAP',
+      headline: title,
+      description,
+      url: SITE_URL,
+      inLanguage: 'en',
+      isPartOf: { '@id': `${SITE_URL}#website` },
+      author: { '@id': `${SITE_URL}#author` },
+      publisher: { '@id': `${SITE_URL}#author` },
+      about: {
+        '@type': 'Thing',
+        name: 'OLAP (Online Analytical Processing)',
+        description:
+          'Databases and query engines optimized for complex, read-heavy analytical queries over large datasets.',
+        sameAs: 'https://en.wikipedia.org/wiki/Online_analytical_processing',
+      },
+      keywords: [
+        'OLAP',
+        'columnar database',
+        'data engineering',
+        'data lake',
+        'lakehouse',
+        'ClickHouse',
+        'Apache Druid',
+        'Apache Pinot',
+        'DuckDB',
+        'Apache Iceberg',
+        'Delta Lake',
+        'Apache Parquet',
+        'query engine',
+        'ETL',
+        'ELT',
+        'stream processing',
+        'batch processing',
+        'data warehouse',
+        'analytical database',
+        'awesome list',
+      ],
+      numberOfItems,
+      dateModified,
+      hasPart: [
+        { '@type': 'WebPageElement', name: 'OLAP Databases', url: `${SITE_URL}#olap-databases` },
+        { '@type': 'WebPageElement', name: 'Real-time analytics', url: `${SITE_URL}#real-time-analytics` },
+        { '@type': 'WebPageElement', name: 'Search engines', url: `${SITE_URL}#search-engines` },
+        { '@type': 'WebPageElement', name: 'Hybrid OLAP/OLTP NewSQL (HTAP)', url: `${SITE_URL}#hybrid-olapoltp-newsql-aka-htap` },
+        { '@type': 'WebPageElement', name: 'Timeseries databases', url: `${SITE_URL}#timeseries` },
+        { '@type': 'WebPageElement', name: 'Managed cloud services', url: `${SITE_URL}#managed-cloud-services` },
+        { '@type': 'WebPageElement', name: 'Storage Engines', url: `${SITE_URL}#storage-engines` },
+        { '@type': 'WebPageElement', name: 'Data Lake', url: `${SITE_URL}#data-lake` },
+        { '@type': 'WebPageElement', name: 'File formats and serialization', url: `${SITE_URL}#file-formats-and-serialization` },
+        { '@type': 'WebPageElement', name: 'Open table formats', url: `${SITE_URL}#open-table-formats` },
+        { '@type': 'WebPageElement', name: 'Metastore', url: `${SITE_URL}#metastore` },
+        { '@type': 'WebPageElement', name: 'Object Storage', url: `${SITE_URL}#object-storage` },
+        { '@type': 'WebPageElement', name: 'Codecs, encoding and compression', url: `${SITE_URL}#codecs-encoding-and-compression` },
+        { '@type': 'WebPageElement', name: 'Brokers and distributed messaging', url: `${SITE_URL}#brokers-and-distributed-messaging` },
+        { '@type': 'WebPageElement', name: 'Ingestion and Querying', url: `${SITE_URL}#ingestion-and-querying` },
+        { '@type': 'WebPageElement', name: 'Stream processing', url: `${SITE_URL}#stream-processing` },
+        { '@type': 'WebPageElement', name: 'Batch processing', url: `${SITE_URL}#batch-processing` },
+        { '@type': 'WebPageElement', name: 'In-memory processing', url: `${SITE_URL}#in-memory-processing` },
+        { '@type': 'WebPageElement', name: 'Distributed SQL processing', url: `${SITE_URL}#distributed-sql-processing` },
+        { '@type': 'WebPageElement', name: 'Scheduler', url: `${SITE_URL}#scheduler` },
+        { '@type': 'WebPageElement', name: 'Durable execution', url: `${SITE_URL}#durable-execution` },
+        { '@type': 'WebPageElement', name: 'ETL, ELT and Reverse ETL', url: `${SITE_URL}#etl-elt-and-reverse-etl` },
+        { '@type': 'WebPageElement', name: 'BI & Visualization', url: `${SITE_URL}#bi--visualization` },
+        { '@type': 'WebPageElement', name: 'Datasets', url: `${SITE_URL}#datasets` },
+        { '@type': 'WebPageElement', name: 'Benchmark', url: `${SITE_URL}#benchmark` },
+      ],
+    },
+    author,
+  ],
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Samuel Berthe" />
+    <link rel="canonical" href={SITE_URL} />
+    <link rel="icon" type="image/svg+xml" href="/awesome-olap/favicon.svg" />
+    <link rel="sitemap" type="application/xml" href="/awesome-olap/sitemap.xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Awesome OLAP" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={SITE_URL} />
+    <meta property="og:image" content={`${SITE_URL}og-image.svg`} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@samuelberthe" />
+    <meta name="twitter:creator" content="@samuelberthe" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${SITE_URL}og-image.svg`} />
+
+    <!-- Keywords -->
+    <meta name="keywords" content="OLAP, columnar database, data engineering, data lake, lakehouse, ClickHouse, DuckDB, Apache Iceberg, Delta Lake, query engine, ETL, ELT, stream processing, data warehouse, analytical database" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Awesome List</div>
+        <h1 class="hero-title">
+          <span class="hero-title-main">Awesome OLAP</span>
+        </h1>
+        <p class="hero-desc">
+          A curated list of OLAP databases, columnar stores, data lake &amp; lakehouse
+          frameworks, query engines, and data engineering tools.
+        </p>
+        <div class="hero-actions">
+          <a
+            class="hero-cta"
+            href="https://github.com/samber/awesome-olap"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+          <svg height="16" width="16" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+              -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
+              .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+              -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
+              1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
+              1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
+              1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          Star on GitHub
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="hero-stat-num">100+</span><span class="hero-stat-label">tools</span></div>
+          <div class="hero-stat-sep"></div>
+          <div class="hero-stat"><span class="hero-stat-num">20+</span><span class="hero-stat-label">categories</span></div>
+          <div class="hero-stat-sep"></div>
+          <div class="hero-stat"><span class="hero-stat-num">open</span><span class="hero-stat-label">source</span></div>
+        </div>
+      </div>
+    </div>
+
+    <slot />
+  </body>
+</html>
