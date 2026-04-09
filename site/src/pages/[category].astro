@@ -1,0 +1,194 @@
+---
+import { getAllSections } from '../lib/readme';
+import '../styles/global.css';
+
+export function getStaticPaths() {
+  return getAllSections().map(({ slug, title, html }) => ({
+    params: { category: slug },
+    props: { title, html },
+  }));
+}
+
+const { category } = Astro.params;
+const { title, html } = Astro.props;
+
+const SITE_URL = 'https://samber.github.io/awesome-olap/';
+const BASE = '/awesome-olap/';
+const canonicalUrl = `${SITE_URL}${category}/`;
+
+// Per-category SEO metadata targeting real search queries.
+const META: Record<string, { pageTitle: string; description: string }> = {
+  'olap-databases': {
+    pageTitle: 'Best OLAP Databases (2026) — Curated List | Awesome OLAP',
+    description:
+      'Compare the top OLAP databases: ClickHouse, Apache Druid, Apache Pinot, StarRocks, Snowflake, BigQuery, Redshift and more. Includes real-time, HTAP, time-series, and managed cloud options.',
+  },
+  'storage-engines': {
+    pageTitle: 'Database Storage Engines — RocksDB, LevelDB, FoundationDB | Awesome OLAP',
+    description:
+      'Overview of the foundational storage engines powering modern databases: RocksDB, LevelDB, FoundationDB — covering durability, LSM-trees, and ACID transactions.',
+  },
+  'data-lake': {
+    pageTitle: 'Data Lake & Lakehouse Tools (2026) — Iceberg, Delta Lake, Parquet | Awesome OLAP',
+    description:
+      'Curated list of data lake and lakehouse tools: open table formats (Apache Iceberg, Delta Lake, Apache Hudi), file formats (Parquet, ORC, Avro), metastores, object storage, and codecs.',
+  },
+  'brokers-and-distributed-messaging': {
+    pageTitle: 'Best Message Queue & Event Streaming Tools (2026) | Awesome OLAP',
+    description:
+      'Compare Kafka, Apache Pulsar, Redpanda, NATS, and RabbitMQ Streams for distributed messaging and event streaming in data pipelines.',
+  },
+  'ingestion-and-querying': {
+    pageTitle: 'Data Ingestion & Query Engine Tools — Flink, Spark, DuckDB | Awesome OLAP',
+    description:
+      'Curated list of stream processing (Flink, Kafka Streams), batch processing (Spark), in-memory query engines (DuckDB, Polars), and distributed SQL (Trino, PrestoDB) tools.',
+  },
+  'scheduler': {
+    pageTitle: 'Data Pipeline Orchestration — Airflow, Dagster | Awesome OLAP',
+    description:
+      'Overview of data pipeline orchestration tools — Apache Airflow and Dagster — for scheduling and monitoring DAG-based data workflows.',
+  },
+  'durable-execution': {
+    pageTitle: 'Durable Workflow Execution — Temporal | Awesome OLAP',
+    description:
+      'Durable execution frameworks like Temporal that guarantee fault-tolerant, long-running data pipeline workflows survive crashes and network failures.',
+  },
+  'etl-elt-and-reverse-etl': {
+    pageTitle: 'Best ETL & ELT Tools (2026) — Airbyte, dbt, Debezium | Awesome OLAP',
+    description:
+      'Curated list of the best ETL, ELT, and reverse ETL tools: Airbyte, dbt, Debezium, Census, and RudderStack for building and automating data pipelines.',
+  },
+  'bi-visualization': {
+    pageTitle: 'Best BI & Data Visualization Tools (2026) — Superset, Grafana, Metabase | Awesome OLAP',
+    description:
+      'Curated list of open-source and commercial BI and data visualization tools: Apache Superset, Grafana, Metabase, and Redash for building analytics dashboards.',
+  },
+  'datasets': {
+    pageTitle: 'OLAP Benchmark Datasets — ClickBench, TPC-H, NYCTaxi | Awesome OLAP',
+    description:
+      'Large-scale public datasets for benchmarking OLAP databases and query engines: NYCTaxi, GitHub Archives, CommonCrawl, Criteo, and Kaggle.',
+  },
+  'benchmark': {
+    pageTitle: 'OLAP Database Benchmarks — ClickBench, TPC-DS, TPC-H | Awesome OLAP',
+    description:
+      'Overview of OLAP database benchmarks: ClickBench (43 queries, 50+ engines), TPC-H, TPC-DS, and Jepsen for measuring query performance across analytical workloads.',
+  },
+  'readings': {
+    pageTitle: 'OLAP & Data Engineering Reading List — Papers, Architecture, Internals | Awesome OLAP',
+    description:
+      'Curated reading list for data engineers: foundational papers (Dremel, RDD, Spanner), architecture patterns (Lambda, Medallion), index types, and consensus algorithms.',
+  },
+  'faq': {
+    pageTitle: 'OLAP FAQ — ClickHouse vs Druid vs Pinot, Iceberg vs Delta Lake | Awesome OLAP',
+    description:
+      'Answers to common OLAP questions: best OLAP database, ClickHouse vs Apache Druid vs Apache Pinot vs StarRocks, Iceberg vs Delta Lake vs Hudi, OLAP vs OLTP, and what is a data lakehouse.',
+  },
+  'people-to-follow': {
+    pageTitle: 'Data Engineering Experts to Follow — ClickHouse, DuckDB, Spark | Awesome OLAP',
+    description:
+      'Notable engineers and researchers in the OLAP and data engineering space: creators of ClickHouse, DuckDB, Apache Spark, Apache Arrow, dbt, Trino, and Apache Druid.',
+  },
+  'events': {
+    pageTitle: 'Data Engineering & OLAP Conferences (2026) | Awesome OLAP',
+    description:
+      'Major data engineering conferences and events: Databricks Data+AI Summit, Snowflake Summit, dbt Summit, Flink Forward, VLDB, and ACM SIGMOD.',
+  },
+  'communities': {
+    pageTitle: 'Data Engineering Communities — Slack, Discord, Reddit | Awesome OLAP',
+    description:
+      'Communities for data engineers: r/dataengineering, dbt Community, ClickHouse Slack, DuckDB Discord, Trino Community, and more.',
+  },
+};
+
+const meta = META[category] ?? {
+  pageTitle: `${title} | Awesome OLAP`,
+  description: `Curated list of ${title} tools and resources for data engineers.`,
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: meta.pageTitle,
+  description: meta.description,
+  url: canonicalUrl,
+  inLanguage: 'en',
+  isPartOf: { '@type': 'WebSite', url: SITE_URL, name: 'Awesome OLAP' },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Awesome OLAP', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: title, item: canonicalUrl },
+    ],
+  },
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{meta.pageTitle}</title>
+    <meta name="description" content={meta.description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href={`${BASE}favicon.svg`} />
+    <link rel="sitemap" type="application/xml" href={`${BASE}sitemap.xml`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Awesome OLAP" />
+    <meta property="og:title" content={meta.pageTitle} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={`${SITE_URL}og-image.svg`} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@samuelberthe" />
+    <meta name="twitter:title" content={meta.pageTitle} />
+    <meta name="twitter:description" content={meta.description} />
+    <meta name="twitter:image" content={`${SITE_URL}og-image.svg`} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <div class="hero" style="padding: 2.5rem 1rem;">
+      <div class="hero-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href={BASE}>Awesome OLAP</a>
+          <span aria-hidden="true"> › </span>
+          <span>{title}</span>
+        </nav>
+        <h1 class="hero-title" style="margin-top: 0.75rem;">
+          <span class="hero-title-main">{title}</span>
+        </h1>
+        <p class="hero-desc">{meta.description}</p>
+        <div class="hero-actions" style="margin-top: 1.25rem;">
+          <a href={BASE} class="hero-cta" style="font-size: 0.875rem;">
+            ← Back to full list
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <main class="content">
+      <Fragment set:html={html} />
+    </main>
+  </body>
+</html>
+
+<style>
+  .breadcrumb {
+    font-size: 0.875rem;
+    color: var(--muted-on-dark);
+  }
+  .breadcrumb a {
+    color: var(--muted-on-dark);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    color: var(--text-on-dark);
+    text-decoration: underline;
+  }
+</style>

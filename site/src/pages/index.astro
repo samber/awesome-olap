@@ -1,13 +1,68 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getReadmeHtml } from '../lib/readme';
+import { getReadmeHtml, getAllSections } from '../lib/readme';
 import '../styles/global.css';
 
 const html = getReadmeHtml();
+const sections = getAllSections();
 ---
 
 <Base>
+  <nav class="category-nav" aria-label="Browse by category">
+    <div class="category-nav-inner">
+      <h2 class="category-nav-title">Browse by Category</h2>
+      <ul class="category-nav-list">
+        {sections.map(({ slug, title }) => (
+          <li>
+            <a href={`/awesome-olap/${slug}/`} class="category-nav-link">{title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+
   <main class="content">
     <Fragment set:html={html} />
   </main>
 </Base>
+
+<style>
+  .category-nav {
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 1rem;
+  }
+  .category-nav-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .category-nav-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .category-nav-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .category-nav-link {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    font-size: 0.8125rem;
+    color: var(--link);
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .category-nav-link:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+  }
+</style>
