@@ -34,3 +34,13 @@ When opening an issue or PR to add a new tool, please provide:
 - The tool must be actively maintained (last commit or release within the past 12 months).
 - The description should explain *what the tool does* and *when you would use it*, not just its marketing tagline.
 - Prefer open-source tools. Closed-source / commercial tools are welcome if they are widely adopted and free to evaluate.
+
+## README is the single source of truth
+
+The website at [samber.github.io/awesome-olap](https://samber.github.io/awesome-olap) is generated automatically from `README.md` at build time. There is no separate website content to maintain.
+
+**This means:**
+- All content changes go in `README.md` only — the site updates on every push to `main`.
+- Do not add images, pages, or content directly to `site/`. The `site/` directory contains only the Astro build tooling.
+- Structural changes to `README.md` (new sections, heading renames) are automatically reflected on the website.
+- Run `awesome-lint README.md` before opening a PR to catch formatting errors early (requires Node.js: `npx awesome-lint README.md`).

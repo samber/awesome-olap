@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# AI search bots — explicitly allowed so platforms can cite this resource
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://samber.github.io/awesome-olap/sitemap.xml

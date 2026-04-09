@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { getReadmeHtml } from '../lib/readme';
+import '../styles/global.css';
+
+const html = getReadmeHtml();
+---
+
+<Base>
+  <main class="content">
+    <Fragment set:html={html} />
+  </main>
+</Base>
