@@ -1,4 +1,3 @@
-<!--lint disable awesome-toc double-link-->
 <div align="center">
 
 # Awesome OLAP [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
@@ -11,13 +10,13 @@ A curated list of **OLAP databases**, **data engineering** tools, **columnar dat
 
 > **OLAP** (Online Analytical Processing) refers to databases and query engines optimized for complex, read-heavy analytical queries over large datasets. Unlike OLTP systems, OLAP databases use columnar storage, vectorized execution, and distributed processing to aggregate and analyze billions of rows in seconds.
 
-Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
+## Contents
 
 <!--lint disable awesome-list-item-->
 - [OLAP Databases](#olap-databases)
   - [Real-time analytics](#real-time-analytics)
   - [Search engines](#search-engines)
-  - [NewSQL](#newsql)
+  - [Hybrid OLAP/OLTP NewSQL (aka HTAP)](#hybrid-olapoltp-newsql-aka-htap)
   - [Timeseries](#timeseries)
   - [Managed cloud services](#managed-cloud-services)
 - [Storage engines](#storage-engines)
@@ -56,6 +55,10 @@ Contributions welcome — see [CONTRIBUTING.md](CONTRIBUTING.md)
 - [People to follow](#people-to-follow)
 - [Events](#events)
 - [Communities](#communities)
+- [🤝 Contributing](#-contributing)
+- [👤 Contributors](#-contributors)
+- [💫 Show your support](#-show-your-support)
+<!--lint enable awesome-list-item-->
 
 ## OLAP Databases
 
@@ -301,54 +304,54 @@ Benchmarks help select the right database for a workload. Always run benchmarks 
 
 ### Papers
 
-- [Apache Flink state management](https://www.vldb.org/pvldb/vol10/p1718-carbone.pdf)
-- [Apache Parquet format](https://github.com/apache/parquet-format/)
-- [Dremel paper](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/36632.pdf)
-- [RDD](https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf)
-- [RocksDB](https://research.facebook.com/publications/rocksdb-evolution-of-development-priorities-in-a-key-value-store-serving-large-scale-applications/)
-- [Spanner paper](https://static.googleusercontent.com/media/research.google.com/en/us/archive/spanner-osdi2012.pdf)
+- [Apache Flink state management](https://www.vldb.org/pvldb/vol10/p1718-carbone.pdf) - Carbone et al. (2017) on Flink's state backend, incremental checkpointing, and exactly-once fault tolerance.
+- [Apache Parquet format](https://github.com/apache/parquet-format/) - Formal specification of the Parquet columnar storage format, including encoding, compression, and nested schema representation.
+- [Dremel paper](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/36632.pdf) - Google's 2010 paper introducing columnar storage for nested data and interactive ad-hoc queries at petabyte scale.
+- [RDD](https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf) - Zaharia et al. (2012) introducing Resilient Distributed Datasets, the fault-tolerant in-memory abstraction that became the foundation of Apache Spark.
+- [RocksDB](https://research.facebook.com/publications/rocksdb-evolution-of-development-priorities-in-a-key-value-store-serving-large-scale-applications/) - Facebook's paper on how RocksDB's design priorities evolved to serve large-scale production workloads.
+- [Spanner paper](https://static.googleusercontent.com/media/research.google.com/en/us/archive/spanner-osdi2012.pdf) - Corbett et al. (2012) on Google Spanner, the globally distributed ACID database using TrueTime for external consistency.
 
 ### Architecture
 
-- [CoW vs MoR](https://www.onehouse.ai/blog/comparing-apache-hudis-mor-and-cow-tables-use-cases-from-uber-and-shopee)
-- [CQRS (Command Query Responsibility Segregation)](https://martinfowler.com/bliki/CQRS.html)
-- [DAG](https://docs.getdbt.com/terms/dag)
-- [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html)
-- [Kappa architecture](https://milinda.pathirage.org/kappa-architecture.com/)
-- [Lambda architecture](https://www.snowflake.com/guides/lambda-architecture)
-- [Medallion architecture](https://dataengineering.wiki/Concepts/Medallion+Architecture)
-- [Reactive programming](https://reactivex.io/)
-- [Star schema vs Snowflake schema](https://www.databricks.com/glossary/star-schema)
+- [CoW vs MoR](https://www.onehouse.ai/blog/comparing-apache-hudis-mor-and-cow-tables-use-cases-from-uber-and-shopee) - Comparison of Copy-on-Write and Merge-on-Read table strategies in Apache Hudi, with trade-offs for read vs write performance.
+- [CQRS (Command Query Responsibility Segregation)](https://martinfowler.com/bliki/CQRS.html) - Martin Fowler's guide on separating read and write models to independently scale and optimize each path.
+- [DAG](https://docs.getdbt.com/terms/dag) - Directed Acyclic Graph — the dependency model used to represent task ordering in data pipeline orchestration.
+- [Event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) - Pattern for persisting application state as an immutable log of events rather than mutable records.
+- [Kappa architecture](https://milinda.pathirage.org/kappa-architecture.com/) - Streaming-only alternative to the Lambda architecture that eliminates the batch layer.
+- [Lambda architecture](https://www.snowflake.com/guides/lambda-architecture) - Big data pattern combining a batch layer for accuracy and a speed layer for low-latency results.
+- [Medallion architecture](https://dataengineering.wiki/Concepts/Medallion+Architecture) - Bronze/silver/gold data quality layering pattern for incrementally refining data in a lakehouse.
+- [Reactive programming](https://reactivex.io/) - Event-driven programming model based on asynchronous, composable data streams.
+- [Star schema vs Snowflake schema](https://www.databricks.com/glossary/star-schema) - Dimensional data modeling patterns for organizing fact and dimension tables in an analytics warehouse.
 
 ### Data modeling
 
-- [Schema evolution](https://www.databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html)
-- [CDC](https://en.wikipedia.org/wiki/Change_data_capture)
+- [Schema evolution](https://www.databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) - How Delta Lake enforces and evolves schemas without breaking downstream readers.
+- [CDC](https://en.wikipedia.org/wiki/Change_data_capture) - Change Data Capture — tracking row-level insertions, updates, and deletes for replication, audit, and event-driven pipelines.
 
 ### Index
 
-- [Partitioning](https://airbyte.com/data-engineering-resources/what-is-data-partitioning)
-- [Data skipping](https://clickhouse.com/docs/en/optimize/skipping-indexes)
-- [Statistics](https://cwiki.apache.org/confluence/display/Hive/StatsDev)
-- [High cardinality](https://www.timescale.com/blog/what-is-high-cardinality-how-do-time-series-databases-influxdb-timescaledb-compare/)
-- [HyperLogLog](https://engineering.fb.com/2018/12/13/data-infrastructure/hyperloglog/)
-- [Bloom filters](https://systemdesign.one/bloom-filters-explained/)
-- [Minmax](https://blog.cloudera.com/speeding-up-select-queries-with-parquet-page-indexes/)
-- [Z-ordering](https://blog.cloudera.com/speeding-up-queries-with-z-order/)
-- [Bitmap index](https://en.wikipedia.org/wiki/Bitmap_index)
-- [Dense index](https://www.dremio.com/wiki/dense-index/)
-- [Sparse index](https://www.dremio.com/wiki/sparse-index/)
-- [Reverse index](https://en.wikipedia.org/wiki/Reverse_index)
-- [N-gram](https://www.postgresql.org/docs/current/pgtrgm.html)
-- [TF-IDF](https://medium.com/codex/document-indexing-using-tf-idf-189afd04a9fc)
-- [LSM Tree](https://en.wikipedia.org/wiki/Log-structured_merge-tree)
+- [Partitioning](https://airbyte.com/data-engineering-resources/what-is-data-partitioning) - Dividing data into logical subsets (by date, region, etc.) to prune irrelevant partitions at query time.
+- [Data skipping](https://clickhouse.com/docs/en/optimize/skipping-indexes) - ClickHouse's secondary skipping indexes for filtering data granules without full column scans.
+- [Statistics](https://cwiki.apache.org/confluence/display/Hive/StatsDev) - Column-level statistics in Hive used by the query planner to estimate cardinality and choose optimal join strategies.
+- [High cardinality](https://www.timescale.com/blog/what-is-high-cardinality-how-do-time-series-databases-influxdb-timescaledb-compare/) - Columns with many distinct values and how high cardinality impacts indexing and storage in time-series databases.
+- [HyperLogLog](https://engineering.fb.com/2018/12/13/data-infrastructure/hyperloglog/) - Probabilistic cardinality estimation algorithm used for COUNT(DISTINCT) at scale with sub-1% error.
+- [Bloom filters](https://systemdesign.one/bloom-filters-explained/) - Space-efficient probabilistic data structure for fast set-membership testing in query engines and storage layers.
+- [Minmax](https://blog.cloudera.com/speeding-up-select-queries-with-parquet-page-indexes/) - Parquet page-level min/max statistics used for predicate pushdown to skip irrelevant row groups.
+- [Z-ordering](https://blog.cloudera.com/speeding-up-queries-with-z-order/) - Multi-dimensional data clustering that co-locates related values to speed up multi-column filter queries.
+- [Bitmap index](https://en.wikipedia.org/wiki/Bitmap_index) - Compact bitset-based index efficient for low-cardinality columns and multi-predicate AND/OR queries.
+- [Dense index](https://www.dremio.com/wiki/dense-index/) - Index with an entry for every row in the table, enabling direct lookups at the cost of index size.
+- [Sparse index](https://www.dremio.com/wiki/sparse-index/) - Index with entries for only a subset of rows, trading lookup precision for smaller index footprint.
+- [Reverse index](https://en.wikipedia.org/wiki/Reverse_index) - Inverted index mapping terms or values back to the rows containing them, foundational to full-text search.
+- [N-gram](https://www.postgresql.org/docs/current/pgtrgm.html) - PostgreSQL trigram-based similarity index for fast fuzzy text matching and LIKE query acceleration.
+- [TF-IDF](https://medium.com/codex/document-indexing-using-tf-idf-189afd04a9fc) - Term Frequency-Inverse Document Frequency scoring algorithm for ranking documents by relevance in full-text search.
+- [LSM Tree](https://en.wikipedia.org/wiki/Log-structured_merge-tree) - Log-Structured Merge-Tree — write-optimized storage structure that batches writes in memory before merging to disk, used in RocksDB, Cassandra, and LevelDB.
 
 ### Vector similarity search
 
 Algorithms and indexes:
 
-- [ANN (approximate nearest neighbor)](https://en.wikipedia.org/wiki/Nearest_neighbor_search)
-- [kNN (k nearest neighbor)](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)
+- [ANN (approximate nearest neighbor)](https://en.wikipedia.org/wiki/Nearest_neighbor_search) - Family of algorithms that trade exact accuracy for speed when finding the closest vectors in high-dimensional space.
+- [kNN (k nearest neighbor)](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) - Exact algorithm returning the K closest vectors by distance; accurate but slow at scale without an index.
 - [Faiss](https://faiss.ai/) - Facebook AI library for efficient similarity search and clustering of dense vectors.
 - [HNSW](https://towardsdatascience.com/similarity-search-part-4-hierarchical-navigable-small-world-hnsw-2aad4fe87d37) - Hierarchical Navigable Small World graph index for approximate nearest neighbor search.
 
@@ -363,40 +366,41 @@ Dedicated vector databases:
 
 ### Vectorized query processing
 
-- [Apache Arrow vectorized execution](https://www.youtube.com/watch?v=JIZGDdbtowg)
-- [Apache Arrow SIMD parallel processing](https://en.wikipedia.org/wiki/Single_instruction,_multiple_data)
-- [Cockroach vectorized JOIN](https://faculty.cc.gatech.edu/~jarulraj/courses/4420-f20/slides/cockroachdb.pdf)
-- [Latency comparison numbers](https://gist.github.com/hyunsik/d2df09cffc7c81a5546b4540c9865f0e#file-latency_comparison_numbers-txt)
+- [Apache Arrow vectorized execution](https://www.youtube.com/watch?v=JIZGDdbtowg) - Talk on how Arrow's columnar memory layout enables SIMD-accelerated batch processing in query engines.
+- [Apache Arrow SIMD parallel processing](https://en.wikipedia.org/wiki/Single_instruction,_multiple_data) - Single Instruction Multiple Data — CPU instruction-level parallelism that processes multiple columnar values in a single clock cycle.
+- [Cockroach vectorized JOIN](https://faculty.cc.gatech.edu/~jarulraj/courses/4420-f20/slides/cockroachdb.pdf) - CockroachDB's vectorized join implementation and the performance gains from columnar execution over row-at-a-time processing.
+- [Latency comparison numbers](https://gist.github.com/hyunsik/d2df09cffc7c81a5546b4540c9865f0e#file-latency_comparison_numbers-txt) - Reference table of hardware latency numbers (L1/L2/L3 cache, RAM, SSD, network) essential for reasoning about database performance.
 
 ### Querying
 
-- [Cost Based Optimization](https://www.databricks.com/blog/2017/08/31/cost-based-optimizer-in-apache-spark-2-2.html)
-- [Sampling](https://www.analyticsvidhya.com/blog/2021/09/a-complete-guide-on-sampling-techniques/)
-- [GraphX](https://amplab.cs.berkeley.edu/wp-content/uploads/2014/02/graphx.pdf)
+- [Cost Based Optimization](https://www.databricks.com/blog/2017/08/31/cost-based-optimizer-in-apache-spark-2-2.html) - How Spark 2.2's cost-based optimizer uses column statistics to choose better join strategies and query plans.
+- [Sampling](https://www.analyticsvidhya.com/blog/2021/09/a-complete-guide-on-sampling-techniques/) - Statistical sampling techniques used in approximate query processing to return fast estimates over large datasets.
+- [GraphX](https://amplab.cs.berkeley.edu/wp-content/uploads/2014/02/graphx.pdf) - Apache Spark's graph processing framework and Pregel-based API for iterative graph algorithms at scale.
 
 ### Transactions
 
-- [ACID properties](https://en.wikipedia.org/wiki/ACID)
-- [Serializable transaction](https://www.cockroachlabs.com/docs/stable/demo-serializable)
+- [ACID properties](https://en.wikipedia.org/wiki/ACID) - Atomicity, Consistency, Isolation, Durability — the four guarantees that define correct database transaction behavior.
+- [Serializable transaction](https://www.cockroachlabs.com/docs/stable/demo-serializable) - CockroachDB's interactive demo illustrating how serializable isolation prevents anomalies like write skew and phantom reads.
 
 ### Consensus
 
-- [Paxos](https://www.youtube.com/watch?v=d7nAGI_NZPk)
-- [Raft](https://thesecretlivesofdata.com/raft/)
+- [Paxos](https://www.youtube.com/watch?v=d7nAGI_NZPk) - Lamport's foundational distributed consensus algorithm for agreeing on a value across unreliable nodes.
+- [Raft](https://thesecretlivesofdata.com/raft/) - Understandable distributed consensus algorithm designed as a more accessible alternative to Paxos, used in etcd and CockroachDB.
 
 ### Challenging platforms
 
-- [Datadog event store](https://www.datadoghq.com/blog/engineering/introducing-husky/)
-- [Cloudflare logging](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/)
+- [Datadog event store](https://www.datadoghq.com/blog/engineering/introducing-husky/) - How Datadog built Husky, a column-store for ingesting and querying billions of tagged events at scale.
+- [Cloudflare logging](https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/) - How Cloudflare processes 6 million HTTP requests per second using ClickHouse for real-time log analytics.
 
 ### Blogs to follow
 
-- [Engineering at Meta](https://engineering.fb.com/)
-- [Engineering at Criteo](https://medium.com/criteo-engineering)
-- [Engineering at Uber](https://www.uber.com/en-US/blog/engineering/)
-- [Engineering at Airbnb](https://medium.com/airbnb-engineering)
-- [Databricks](https://www.databricks.com/blog/category/engineering)
-- [Towards Data Science](https://towardsdatascience.com/)
+- [Engineering at Meta](https://engineering.fb.com/) - Meta's engineering blog covering data infrastructure, distributed systems, and AI at hyperscale.
+- [Engineering at Criteo](https://medium.com/criteo-engineering) - Criteo's engineering blog on ad-tech data pipelines, Spark, and large-scale machine learning.
+- [Engineering at Uber](https://www.uber.com/en-US/blog/engineering/) - Uber's engineering blog covering data infrastructure, streaming systems, and distributed databases.
+- [Engineering at Airbnb](https://medium.com/airbnb-engineering) - Airbnb's engineering blog on data platform, analytics engineering, and ML infrastructure.
+- [Databricks](https://www.databricks.com/blog/category/engineering) - Engineering blog on lakehouse architecture, Apache Spark, Delta Lake, and MLflow.
+- [Towards Data Science](https://towardsdatascience.com/) - Community publication covering data science, data engineering, and machine learning.
+- [Antithesis](https://antithesis.com/blog/) - Blog from the autonomous testing platform covering distributed systems correctness, fault injection, and database reliability.
 
 ### More
 
@@ -411,13 +415,19 @@ Dedicated vector databases:
 
 There is no single best OLAP database — the right choice depends on your latency, scale, and operational constraints:
 
-- **ClickHouse** — best raw query speed on a single node or small cluster; ideal for user-facing analytics, logs, and event data.
-- **Apache Druid / Apache Pinot** — best for sub-second queries at high concurrency over streaming-ingested data (ad tech, real-time dashboards).
-- **StarRocks** — strong alternative to ClickHouse/Druid for hybrid batch+streaming with a MySQL-compatible interface.
-- **DuckDB** — best for local or embedded analytics on files (Parquet, CSV); no server required.
-- **Trino / PrestoDB** — best for federated queries across heterogeneous sources (S3, Hive, RDBMS) without moving data.
-- **Apache Spark** — best for large-scale batch ETL and ML pipelines where latency is not critical.
-- **Snowflake / BigQuery / Redshift** — best when you want fully managed infrastructure with elastic scaling and no ops overhead.
+**ClickHouse** — best raw query speed on a single node or small cluster; ideal for user-facing analytics, logs, and event data.
+
+**Apache Druid / Apache Pinot** — best for sub-second queries at high concurrency over streaming-ingested data (ad tech, real-time dashboards).
+
+**StarRocks** — strong alternative to ClickHouse/Druid for hybrid batch+streaming with a MySQL-compatible interface.
+
+**DuckDB** — best for local or embedded analytics on files (Parquet, CSV); no server required.
+
+**Trino / PrestoDB** — best for federated queries across heterogeneous sources (S3, Hive, RDBMS) without moving data.
+
+**Apache Spark** — best for large-scale batch ETL and ML pipelines where latency is not critical.
+
+**Snowflake / BigQuery / Redshift** — best when you want fully managed infrastructure with elastic scaling and no ops overhead.
 
 ### OLAP vs OLTP
 
@@ -452,25 +462,29 @@ See the comparison links in the Open table formats section for detailed benchmar
 
 All four are real-time OLAP databases with sub-second query latency. Key differences:
 
-|                      | ClickHouse                          | Apache Druid                              | Apache Pinot                              | StarRocks                               |
-| -------------------- | ----------------------------------- | ----------------------------------------- | ----------------------------------------- | --------------------------------------- |
-| **Best for**         | Log/event analytics, ad-hoc queries | Streaming-ingested time-series data       | User-facing analytics, high concurrency   | Hybrid batch+streaming, flexible schema |
-| **Architecture**     | Shared-nothing, columnar MergeTree  | Segment-based, time-partitioned           | Segment-based, real-time + offline tables | MPP with vectorized execution engine    |
-| **Ingestion**        | Kafka, files, HTTP push             | Kafka, Kinesis, native streaming          | Kafka, Kinesis, files                     | Kafka, files, Flink, Spark              |
-| **Upserts**          | Limited (ReplacingMergeTree)        | No                                        | No (append-only)                          | Yes (primary key tables)                |
-| **Query concurrency**| Medium                              | High                                      | Very high (user-facing)                   | High                                    |
-| **SQL dialect**      | ClickHouse SQL (mostly ANSI)        | Druid SQL (ANSI subset)                   | PQL + Druid-compatible SQL                | MySQL-compatible SQL                    |
-| **Written in**       | C++                                 | Java                                      | Java                                      | C++ / Java                              |
-| **Managed cloud**    | ClickHouse Cloud                    | Imply Polaris                             | StarTree Cloud                            | CelerData                               |
-| **License**          | Apache 2.0                          | Apache 2.0                                | Apache 2.0                                | Apache 2.0 (Elastic for some features)  |
+|                        | ClickHouse                          | Apache Druid                              | Apache Pinot                              | StarRocks                               |
+| ---------------------- | ----------------------------------- | ----------------------------------------- | ----------------------------------------- | --------------------------------------- |
+| **Best for**           | Log/event analytics, ad-hoc queries | Streaming-ingested time-series data       | User-facing analytics, high concurrency   | Hybrid batch+streaming, flexible schema |
+| **Architecture**       | Shared-nothing, columnar MergeTree  | Segment-based, time-partitioned           | Segment-based, real-time + offline tables | MPP with vectorized execution engine    |
+| **Ingestion**          | Kafka, files, HTTP push             | Kafka, Kinesis, native streaming          | Kafka, Kinesis, files                     | Kafka, files, Flink, Spark              |
+| **Upserts**            | Limited (ReplacingMergeTree)        | No                                        | No (append-only)                          | Yes (primary key tables)                |
+| **Query concurrency**  | Medium                              | High                                      | Very high (user-facing)                   | High                                    |
+| **SQL dialect**        | ClickHouse SQL (mostly ANSI)        | Druid SQL (ANSI subset)                   | PQL + Druid-compatible SQL                | MySQL-compatible SQL                    |
+| **Written in**         | C++                                 | Java                                      | Java                                      | C++ / Java                              |
+| **Managed cloud**      | ClickHouse Cloud                    | Imply Polaris                             | StarTree Cloud                            | CelerData                               |
+| **License**            | Apache 2.0                          | Apache 2.0                                | Apache 2.0                                | Apache 2.0 (Elastic for some features)  |
 
-**When to pick which:**
-- **ClickHouse** — highest raw throughput for analytics on a single cluster; ideal for logs, metrics, and BI queries.
-- **Apache Druid** — best when data arrives via Kafka and you need time-partitioned rollups with guaranteed low latency.
-- **Apache Pinot** — best for user-facing products where thousands of end-users hit the DB concurrently (dashboards, embedded analytics).
-- **StarRocks** — best when you need upserts, a MySQL-compatible interface, or a single engine for both batch and streaming.
+#### When to pick which
 
-See [ClickBench](https://benchmark.clickhouse.com/) for query performance comparisons across engines.
+**ClickHouse** — highest raw throughput for analytics on a single cluster; ideal for logs, metrics, and BI queries.
+
+**Apache Druid** — best when data arrives via Kafka and you need time-partitioned rollups with guaranteed low latency.
+
+**Apache Pinot** — best for user-facing products where thousands of end-users hit the DB concurrently (dashboards, embedded analytics).
+
+**StarRocks** — best when you need upserts, a MySQL-compatible interface, or a single engine for both batch and streaming.
+
+See the Benchmark section for query performance comparisons across engines.
 
 ## People to follow
 
@@ -524,7 +538,7 @@ See [ClickBench](https://benchmark.clickhouse.com/) for query performance compar
 
 ## 🤝 Contributing
 
-[Contributions of any kind welcome, just follow the guidelines](CONTRIBUTING.md)!
+Contributions of any kind welcome! Read the [guidelines](CONTRIBUTING.md) before opening a PR.
 
 ## 👤 Contributors
 
@@ -535,9 +549,3 @@ See [ClickBench](https://benchmark.clickhouse.com/) for query performance compar
 Give a ⭐️ if this project helped you!
 
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/samber?style=for-the-badge)](https://github.com/sponsors/samber)
-
-## 📝 License
-
-Copyright © 2023 [Samuel Berthe](https://github.com/samber).
-
-This project is [MIT](./LICENSE) licensed.
