@@ -549,3 +549,10 @@ Contributions of any kind welcome! Read the [guidelines](CONTRIBUTING.md) before
 Give a ⭐️ if this project helped you!
 
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/samber?style=for-the-badge)](https://github.com/sponsors/samber)
+
+## 📝 License
+
+- Alert rules and content: [Creative Commons CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- Site source code: [MIT](site/LICENSE)
+
+See [LICENSE](LICENSE) for details.
