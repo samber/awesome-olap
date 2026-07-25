@@ -97,6 +97,7 @@ HTAP (Hybrid Transactional-Analytical Processing) databases handle both transact
 Time-series databases are optimized for append-heavy workloads where data is tagged, timestamped, and queried by time range — distinct from general OLAP because they prioritize ingestion throughput, automatic retention, and time-aligned aggregations.
 
 - [Grafana Mimir](https://grafana.com/oss/mimir/) - Prometheus-compatible TSDB on top of object storage, horizontally scalable.
+- [h5i-db](https://db.h5i.dev) - Embedded time series database in Rust that queries Parquet through DataFusion SQL with ASOF joins and time bucketing, and versions every write so any past state reads in constant time; use it for local analytical and quant research workloads where a server TSDB is too much operational weight.
 - [InfluxDB](https://www.influxdata.com/) - Purpose-built time series database optimized for high-write-throughput metrics, events, and IoT data with a SQL-like query language.
 - [Prometheus](https://prometheus.io/) - Pull-based metrics collection and time series database, de facto standard for cloud-native monitoring.
 - [QuestDB](https://questdb.io/) - High-performance time series database written in Java and C++, with SQL support and ingestion rates exceeding millions of rows per second.
