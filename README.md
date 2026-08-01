@@ -120,6 +120,7 @@ Fully managed cloud data warehouses trade self-hosted operational overhead for e
 Storage engines are the foundational frameworks on top of which higher-level databases and data systems are built. They handle durability, transactions, and low-level data organization.
 
 - [FoundationDB](https://www.foundationdb.org/) - Distributed ordered key-value store with full ACID transactions, designed as a reliable foundation layer for building higher-level databases and services.
+- [KoldStore](https://github.com/kalamdb/koldstore) - PostgreSQL tiered-storage that moves historical rows to Parquet while keeping the original table fully queryable and supporting updates and deletes.
 - [LevelDB](https://github.com/google/leveldb) - Google's embeddable key-value store using a log-structured merge-tree (LSM-tree); the inspiration for RocksDB and widely used in Blockchain and embedded systems.
 - [RocksDB](https://rocksdb.org/) - Embeddable persistent key-value store by Meta, optimized for fast storage and used as the storage engine inside many distributed databases (TiKV, CockroachDB, Kafka).
 
