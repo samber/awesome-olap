@@ -1,11 +1,16 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
+    cooldown:
+      default-days: 7
     directory: "/"
     schedule:
       interval: "monthly"
 
   - package-ecosystem: "npm"
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
     directory: "/site"
     schedule:
       interval: "monthly"
