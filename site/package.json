@@ -8,7 +8,9 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.0.4",
-    "marked": "^18.0.5"
+    "marked": "^18.0.5",
+    "posthog-js": "^1.425.1"
   }
 }
