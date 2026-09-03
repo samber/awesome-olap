@@ -24,3 +24,7 @@ export const POSTHOG_API_HOST = 'https://hogpost3.samber.dev';
 // PostHog Cloud US region — where the project actually lives. Only used to build in-app
 // links; no event data is sent here directly.
 export const POSTHOG_UI_HOST = 'https://us.posthog.com';
+
+// Ahrefs analytics data key for the awesome-olap project. This is a publishable key
+// for web analytics tracking, not a secret.
+export const AHREFS_DATA_KEY = 'ZTNkZml6cXSnXXtm2Jbzg';

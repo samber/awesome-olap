@@ -4,6 +4,7 @@
 // (section pages) — the latter builds its own `<head>` rather than using the layout,
 // so anything added to only one of the two silently misses 17 of the 18 pages.
 import {
+  AHREFS_DATA_KEY,
   GA4_MEASUREMENT_ID,
   GSC_VERIFICATION_TOKEN,
   POSTHOG_API_HOST,
@@ -16,6 +17,7 @@ import {
 <!-- Preconnect to the analytics origins so the first event isn't blocked on DNS + TLS. -->
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
 <link rel="preconnect" href={POSTHOG_API_HOST} crossorigin />
+<link rel="preconnect" href="https://analytics.ahrefs.com" crossorigin />
 
 <!-- Google Analytics 4 -->
 <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}></script>
@@ -50,3 +52,6 @@ import {
     capture_pageleave: true,
   });
 </script>
+
+<!-- Ahrefs Analytics -->
+<script async src={`https://analytics.ahrefs.com/analytics.js`} data-key={AHREFS_DATA_KEY}></script>
