@@ -42,13 +42,22 @@ To build:
 cd site && npm run build
 ```
 
-## Analytics and sitemap (site/)
+## Shared page elements (site/)
 
-`site/src/components/SiteHead.astro` holds every tag that must appear on all 18 pages:
-the Google Search Console verification meta, GA4, and PostHog. Both `layouts/Base.astro`
-(homepage) and `pages/[category].astro` include it — the latter builds its own `<head>`
-instead of using the layout, so a tag added to only one of them misses 17 pages.
-Identifiers live in `site/src/lib/analytics.ts`.
+`pages/[category].astro` builds its own `<html>` document instead of consuming
+`layouts/Base.astro`, so nothing crosses between them implicitly: an element written
+inline in one file is absent from every page rendered by the other. The homepage is 1 of
+18 pages, so a homepage-only element misses 17.
+
+Anything that belongs on every page goes in a component both files import:
+
+- `components/SiteHead.astro` — Google Search Console verification meta, GA4, PostHog.
+  Identifiers live in `site/src/lib/analytics.ts`.
+- `components/GithubCta.astro` — the "Star on GitHub" button. Pass `compact` on category
+  pages, where it sits beside the secondary `.hero-cta-ghost` back-link.
+- `components/SiteFooter.astro` — sibling-list cross-links.
+
+## Analytics and sitemap (site/)
 
 PostHog sends events through the `hogpost3.samber.dev` reverse proxy and runs with
 `person_profiles: 'always'` so anonymous readers still get profiles.

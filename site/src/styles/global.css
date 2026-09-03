@@ -104,6 +104,11 @@ body {
 }
 
 .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
   margin-bottom: 2rem;
 }
 
@@ -157,6 +162,29 @@ body {
 }
 .hero-cta:hover {
   background: #388bfd;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Secondary hero button: keeps the repository CTA the only primary action when
+   both sit in the same .hero-actions row. */
+.hero-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted-on-dark);
+  background: transparent;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid #30363d;
+  transition: color 0.15s, border-color 0.15s, transform 0.1s;
+}
+.hero-cta-ghost:hover {
+  color: var(--text-on-dark);
+  border-color: var(--muted-on-dark);
   text-decoration: none;
   transform: translateY(-1px);
 }
