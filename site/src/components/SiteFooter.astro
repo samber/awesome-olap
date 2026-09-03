@@ -1,0 +1,66 @@
+---
+// Cross-links to the sibling awesome lists maintained in the same GitHub organisation.
+// Deliberately one quiet line: these are neighbouring projects, not navigation for this list.
+const SIBLINGS = [
+  { name: 'Awesome AI-Native', url: 'https://samber.github.io/awesome-ai-native/' },
+  { name: 'Awesome Prometheus Alerts', url: 'https://samber.github.io/awesome-prometheus-alerts/' },
+  { name: 'Awesome User Research', url: 'https://samber.github.io/awesome-user-research/' },
+];
+---
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <span class="site-footer-label">More awesome lists</span>
+    <ul class="site-footer-links">
+      {SIBLINGS.map(({ name, url }) => (
+        <li><a href={url}>{name}</a></li>
+      ))}
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-alt);
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
+  }
+  .site-footer-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+  .site-footer-label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    font-size: 0.6875rem;
+  }
+  .site-footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  .site-footer-links li + li::before {
+    content: '·';
+    margin-right: 0.5rem;
+    color: var(--border);
+  }
+  .site-footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .site-footer-links a:hover {
+    color: var(--link);
+    text-decoration: underline;
+  }
+</style>
