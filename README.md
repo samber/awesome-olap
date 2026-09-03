@@ -530,7 +530,7 @@ See the Benchmark section for query performance comparisons across engines.
 - [r/dataengineering](https://www.reddit.com/r/dataengineering/) - The largest Reddit community for data engineering discussions (300k+ members).
 - [r/databasedevelopment](https://www.reddit.com/r/databasedevelopment/) - Subreddit for database internals, query engines, and storage systems (10k+ members).
 - [DataTalks.Club](https://datatalks.club/slack.html) - Global Slack community for data practitioners covering data engineering, ML, and MLOps.
-- [Big Data Hebdo](https://bigdatahebdo.com/) - French-language Slack community and podcast covering big data, data engineering, and analytics.
+- [Big Data Hebdo](https://www.bigdatahebdo.com/) - French-language Slack community and podcast covering big data, data engineering, and analytics.
 - [Software Internals](https://eatonphil.com/discord.html) - Discord community by Phil Eaton focused on database internals, compilers, and distributed systems (9k+ members).
 - [Locally Optimistic](https://locallyoptimistic.com/community/) - Curated Slack community for current and aspiring analytics leaders.
 
