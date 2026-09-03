@@ -2,6 +2,7 @@
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { readFileSync } from 'node:fs';
+import SiteHead from '../components/SiteHead.astro';
 
 const SITE_URL = 'https://samber.github.io/awesome-olap/';
 
@@ -135,7 +136,7 @@ const jsonLd = {
     <meta name="author" content="Samuel Berthe" />
     <link rel="canonical" href={SITE_URL} />
     <link rel="icon" type="image/svg+xml" href="/awesome-olap/favicon.svg" />
-    <link rel="sitemap" type="application/xml" href="/awesome-olap/sitemap.xml" />
+    <link rel="sitemap" type="application/xml" href="/awesome-olap/sitemap-index.xml" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -158,6 +159,8 @@ const jsonLd = {
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <SiteHead />
   </head>
   <body>
     <div class="hero">
@@ -201,16 +204,5 @@ const jsonLd = {
     </div>
 
     <slot />
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VEXMKE0FH4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-VEXMKE0FH4');
-</script>
-
   </body>
 </html>

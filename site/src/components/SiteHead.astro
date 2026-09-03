@@ -1,0 +1,52 @@
+---
+// Head tags that must appear identically on every page: search-engine ownership proof
+// and analytics. Included by both `Base.astro` (homepage) and `[category].astro`
+// (section pages) — the latter builds its own `<head>` rather than using the layout,
+// so anything added to only one of the two silently misses 17 of the 18 pages.
+import {
+  GA4_MEASUREMENT_ID,
+  GSC_VERIFICATION_TOKEN,
+  POSTHOG_API_HOST,
+  POSTHOG_PROJECT_KEY,
+} from '../lib/analytics';
+---
+
+<meta name="google-site-verification" content={GSC_VERIFICATION_TOKEN} />
+
+<!-- Preconnect to the analytics origins so the first event isn't blocked on DNS + TLS. -->
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+<link rel="preconnect" href={POSTHOG_API_HOST} crossorigin />
+
+<!-- Google Analytics 4 -->
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}></script>
+<script is:inline define:vars={{ GA4_MEASUREMENT_ID }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', GA4_MEASUREMENT_ID);
+</script>
+
+<!-- PostHog -->
+<script>
+  import posthog from 'posthog-js';
+  import { POSTHOG_API_HOST, POSTHOG_PROJECT_KEY, POSTHOG_UI_HOST } from '../lib/analytics';
+
+  posthog.init(POSTHOG_PROJECT_KEY, {
+    api_host: POSTHOG_API_HOST,
+    // Ingestion goes through the proxy, but the app itself does not live there — without
+    // this, in-app links (toolbar, session links) would point at the proxy host and 404.
+    ui_host: POSTHOG_UI_HOST,
+    // This is a public reference list: almost nobody ever identifies, so the default
+    // `identified_only` would leave essentially all traffic without a person profile.
+    // `always` creates profiles for anonymous visitors too, making unique-visitor and
+    // returning-visitor analysis possible.
+    person_profiles: 'always',
+    autocapture: true,
+    capture_pageview: true,
+    // Needed for time-on-page: without it a reader who leaves from the entry page
+    // produces no exit event and the visit reads as zero duration.
+    capture_pageleave: true,
+  });
+</script>

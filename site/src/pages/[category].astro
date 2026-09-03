@@ -1,5 +1,6 @@
 ---
 import { getAllSections } from '../lib/readme';
+import SiteHead from '../components/SiteHead.astro';
 import '../styles/global.css';
 
 export function getStaticPaths() {
@@ -132,7 +133,7 @@ const jsonLd = {
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href={`${BASE}favicon.svg`} />
-    <link rel="sitemap" type="application/xml" href={`${BASE}sitemap.xml`} />
+    <link rel="sitemap" type="application/xml" href={`${BASE}sitemap-index.xml`} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -151,6 +152,8 @@ const jsonLd = {
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <SiteHead />
   </head>
   <body>
     <div class="hero" style="padding: 2.5rem 1rem;">
