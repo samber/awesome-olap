@@ -58,6 +58,7 @@ A curated list of **OLAP databases**, **data engineering** tools, **columnar dat
 - [🤝 Contributing](#-contributing)
 - [👤 Contributors](#-contributors)
 - [💫 Show your support](#-show-your-support)
+- [📝 License](#-license)
 <!--lint enable awesome-list-item-->
 
 ## OLAP Databases
