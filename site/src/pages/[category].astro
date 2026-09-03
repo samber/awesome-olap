@@ -1,6 +1,7 @@
 ---
 import { getAllSections } from '../lib/readme';
 import SiteHead from '../components/SiteHead.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import '../styles/global.css';
 
 export function getStaticPaths() {
@@ -178,6 +179,8 @@ const jsonLd = {
     <main class="content">
       <Fragment set:html={html} />
     </main>
+
+    <SiteFooter />
   </body>
 </html>
 

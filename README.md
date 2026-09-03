@@ -10,6 +10,12 @@ A curated list of **OLAP databases**, **data engineering** tools, **columnar dat
 
 > **OLAP** (Online Analytical Processing) refers to databases and query engines optimized for complex, read-heavy analytical queries over large datasets. Unlike OLTP systems, OLAP databases use columnar storage, vectorized execution, and distributed processing to aggregate and analyze billions of rows in seconds.
 
+See also:
+
+- [awesome-ai-native](https://github.com/samber/awesome-ai-native) - Products where the LLM is the product itself.
+- [awesome-prometheus-alerts](https://github.com/samber/awesome-prometheus-alerts) - Collection of Prometheus alerting rules.
+- [awesome-user-research](https://github.com/samber/awesome-user-research) - Tools for Product Managers and UX Researchers.
+
 ## Contents
 
 <!--lint disable awesome-list-item-->

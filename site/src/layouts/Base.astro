@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { readFileSync } from 'node:fs';
 import SiteHead from '../components/SiteHead.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 const SITE_URL = 'https://samber.github.io/awesome-olap/';
 
@@ -204,5 +205,7 @@ const jsonLd = {
     </div>
 
     <slot />
+
+    <SiteFooter />
   </body>
 </html>
