@@ -28,3 +28,7 @@ export const POSTHOG_UI_HOST = 'https://us.posthog.com';
 // Ahrefs analytics data key for the awesome-olap project. This is a publishable key
 // for web analytics tracking, not a secret.
 export const AHREFS_DATA_KEY = 'ZTNkZml6cXSnXXtm2Jbzg';
+
+// Ahrefs ownership-verification token for the awesome-olap project. Proves domain
+// ownership to Ahrefs, separate from the analytics data key above.
+export const AHREFS_SITE_VERIFICATION = 'da5bb74a487d1869ab3a7854e35e12f247bad1cb52116ede21ad9d01e26d1c68';

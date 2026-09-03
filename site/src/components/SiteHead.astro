@@ -5,6 +5,7 @@
 // so anything added to only one of the two silently misses 17 of the 18 pages.
 import {
   AHREFS_DATA_KEY,
+  AHREFS_SITE_VERIFICATION,
   GA4_MEASUREMENT_ID,
   GSC_VERIFICATION_TOKEN,
   POSTHOG_API_HOST,
@@ -13,6 +14,7 @@ import {
 ---
 
 <meta name="google-site-verification" content={GSC_VERIFICATION_TOKEN} />
+<meta name="ahrefs-site-verification" content={AHREFS_SITE_VERIFICATION} />
 
 <!-- Preconnect to the analytics origins so the first event isn't blocked on DNS + TLS. -->
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />

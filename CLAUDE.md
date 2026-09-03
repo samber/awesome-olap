@@ -51,8 +51,9 @@ inline in one file is absent from every page rendered by the other. The homepage
 
 Anything that belongs on every page goes in a component both files import:
 
-- `components/SiteHead.astro` — Google Search Console verification meta, GA4, PostHog.
-  Identifiers live in `site/src/lib/analytics.ts`.
+- `components/SiteHead.astro` — Google Search Console verification meta, GA4, PostHog,
+  Ahrefs (site-verification meta + analytics snippet). Identifiers live in
+  `site/src/lib/analytics.ts`.
 - `components/GithubCta.astro` — the "Star on GitHub" button. Pass `compact` on category
   pages, where it sits beside the secondary `.hero-cta-ghost` back-link.
 - `components/SiteFooter.astro` — sibling-list cross-links.
