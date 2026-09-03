@@ -160,7 +160,7 @@ Open tables are a cost-effective datawarehouse for petabyte scale.
 Comparison:
 - [(2022) Open Table Formats: Delta vs Iceberg vs Hudi](https://medium.com/geekculture/open-table-formats-delta-iceberg-hudi-732f682ec0bb)
 - [(2023) Choosing an open table format for your transactional data lake on AWS](https://aws.amazon.com/blogs/big-data/choosing-an-open-table-format-for-your-transactional-data-lake-on-aws/)
-- [(2024) Apache Iceberg vs Delta Lake vs Apache Hudi: Choosing the Right Table Format](https://www.onehouse.ai/blog/apache-iceberg-vs-delta-lake-vs-apache-hudi-choosing-the-right-table-format)
+- [(2024) Apache Hudi vs Delta Lake vs Apache Iceberg: Feature Comparison Deep Dive](https://www.onehouse.ai/blog/apache-hudi-vs-delta-lake-vs-apache-iceberg-lakehouse-feature-comparison)
 
 👆 Warning: pre-2022 articles should be considered as out-of-date, as open table formats are evolving quickly.
 
