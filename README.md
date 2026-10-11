@@ -274,6 +274,7 @@ The popular acronym for Extracting, Transforming and Loading data (also called d
 - [Census](https://www.getcensus.com/) - Reverse ETL platform for syncing data warehouse data to CRMs, ad tools, and other SaaS.
 - [dbt](https://www.getdbt.com/) - SQL-based transformation framework that runs inside your warehouse; the standard tool for the T in ELT.
 - [Debezium](https://debezium.io/) - Open-source CDC (Change Data Capture) platform that streams row-level changes from databases like PostgreSQL, MySQL, and MongoDB into Kafka and downstream systems.
+- [OLake](https://github.com/datazip-inc/olake) - Open-source CDC and batch replication from Postgres, MySQL, MongoDB, Oracle, SQL Server and Kafka into Apache Iceberg tables, with compaction and snapshot maintenance.
 - [RudderStack](https://www.rudderstack.com/) - Customer Data Platform providing a pipeline between a tracking plan, event transformation, and destination tools.
 
 ## BI & Visualization
