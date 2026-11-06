@@ -96,6 +96,7 @@ HTAP (Hybrid Transactional-Analytical Processing) databases handle both transact
 
 - [Citus](https://www.citusdata.com/) - PostgreSQL compatible distributed table.
 - [CockroachDB](https://www.cockroachlabs.com/) - Distributed SQL database with strong consistency, horizontal scaling, and PostgreSQL compatibility for HTAP workloads.
+- [SingleStore](https://www.singlestore.com/) - Distributed, MySQL-compatible SQL database that runs transactions and analytics on the same live data, with vector and full-text search in SQL (formerly MemSQL).
 - [TiDB](https://github.com/pingcap/tidb) - MySQL compatible SQL database that supports hybrid transactional and analytical processing workloads.
 - [YugabyteDB](https://www.yugabyte.com/) - Distributed SQL database compatible with PostgreSQL and Cassandra APIs, designed for global, cloud-native HTAP applications.
 
