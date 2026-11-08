@@ -120,6 +120,7 @@ Fully managed cloud data warehouses trade self-hosted operational overhead for e
 - [Databricks](https://www.databricks.com/) - Lakehouse platform combining data warehousing and ML, built on Delta Lake and Apache Spark.
 - [Firebolt](https://www.firebolt.io/) - Cloud-native OLAP warehouse engineered for sub-second query performance at scale.
 - [Google BigQuery](https://cloud.google.com/bigquery) - Serverless, pay-as-you-go data warehouse with built-in ML and BI capabilities.
+- [Opteryx](https://opteryx.app/) - Hosted single-node SQL engine that queries Parquet files in your own GCS or S3 buckets in place, for ad-hoc analysis without loading a warehouse; free tier.
 - [Snowflake](https://www.snowflake.com/en/) - Cloud data platform with a decoupled storage and compute architecture, supporting multi-cloud deployments.
 - [Tinybird](https://www.tinybird.co/) - Real-time analytics API platform built on ClickHouse.
 
