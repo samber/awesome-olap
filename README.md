@@ -163,6 +163,7 @@ Open tables are a cost-effective datawarehouse for petabyte scale.
 - [Apache Hudi](https://hudi.apache.org/) - Open table format with strong CDC and upsert support, designed for incremental data pipelines.
 - [Apache Iceberg](https://iceberg.apache.org/) - Open table format for huge analytic datasets, with snapshot isolation, schema evolution, and partition pruning.
 - [DeltaLake](https://delta.io/) - Open table format bringing ACID transactions and scalable metadata to Apache Spark and beyond.
+- [DuckLake](https://ducklake.select/) - Open table and lakehouse format built on SQL and Parquet, with metadata stored in a standard SQL database.
 
 Comparison:
 - [(2022) Open Table Formats: Delta vs Iceberg vs Hudi](https://medium.com/geekculture/open-table-formats-delta-iceberg-hudi-732f682ec0bb)
