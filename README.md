@@ -284,6 +284,7 @@ Business intelligence and visualization tools sit on top of OLAP databases, enab
 
 - [Apache Superset](https://superset.apache.org/) - Open-source business intelligence platform with a rich SQL editor, drag-and-drop chart builder, and support for 40+ data sources.
 - [Grafana](https://grafana.com/) - Open-source observability and analytics platform for visualizing metrics, logs, and traces; widely used with time-series and OLAP backends.
+- [hypequery](https://hypequery.com/) - Open-source embedded analytics layer for ClickHouse that defines metrics and dimensions in TypeScript or Python and serves them as type-safe queries, HTTP APIs, React hooks, and MCP tools; use it to build customer-facing dashboards and agent tools inside your own backend.
 - [Metabase](https://www.metabase.com/) - Open-source BI tool focused on ease of use, letting non-technical users explore data and build dashboards without SQL.
 - [Redash](https://redash.io/) - Open-source query editor and dashboarding tool with broad database connector support.
 
